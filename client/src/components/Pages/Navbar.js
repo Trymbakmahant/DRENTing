@@ -1,4 +1,17 @@
+import {ethers} from 'ethers';
+import{useState} from 'react'
 function Navbar() {
+  const[accountAddress,useaccountAdress] = useState();
+  const connectFormHandler = async () => {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    useaccountAdress(accounts[0]);
+
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -13,7 +26,21 @@ function Navbar() {
             <a>Upload Product</a>
           </li>
           <li>
-            <a>Connect</a>
+            <a>
+            <button
+          onClick={connectFormHandler}
+          style={{ marginRight: "20px", marginLeft: "20px" }}
+          exact
+          className=" btn btn-outline"
+        >
+          {accountAddress
+            ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
+                37,
+                42
+              )}`
+            : "connect"}
+        </button>
+            </a>
           </li>
         </ul>
       </div>
