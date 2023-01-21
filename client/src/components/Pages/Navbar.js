@@ -1,16 +1,22 @@
 import {ethers} from 'ethers';
-import{useState} from 'react'
+import{useState,useContext, useEffect} from 'react'
+import { accContext } from '../context/accountContext';
 function Navbar() {
-  const[accountAddress,useaccountAdress] = useState();
-  const connectFormHandler = async () => {
+  const ctx= useContext(accContext);
+  const accountAddress = ctx.dataState.acclogin.accountAddress;
+      //  const[accountAddress,useaccountAdress] = useState();
+       
+       const connectFormHandler = async () => {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    useaccountAdress(accounts[0]);
+      //  useaccountAdress(accounts[0]);
+    ctx.dataState.addData(provider,signer,accounts[0]);
 
   };
+
 
   return (
     <div className="navbar bg-base-100">
@@ -33,11 +39,14 @@ function Navbar() {
           exact
           className=" btn btn-outline"
         >
-          {accountAddress
-            ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
+        {(accountAddress)
+            ? 
+            `${accountAddress.substr(0, 5)}...${accountAddress.substr(
                 37,
                 42
+
               )}`
+          
             : "connect"}
         </button>
             </a>
