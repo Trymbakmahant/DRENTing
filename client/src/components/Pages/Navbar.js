@@ -1,22 +1,23 @@
-import {ethers} from 'ethers';
-import{useState,useContext, useEffect} from 'react'
-import { accContext } from '../context/accountContext';
+import { ethers } from "ethers";
+import { useState, useContext, useEffect } from "react";
+import { accContext } from "../context/accountContext";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
-  const ctx= useContext(accContext);
+  const ctx = useContext(accContext);
+  const navigate = useNavigate();
   const accountAddress = ctx.dataState.acclogin.accountAddress;
-      //  const[accountAddress,useaccountAdress] = useState();
-       
-       const connectFormHandler = async () => {
+
+  const connectFormHandler = async () => {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-      //  useaccountAdress(accounts[0]);
-    ctx.dataState.addData(provider,signer,accounts[0]);
-
+    ctx.dataState.addData(provider, signer, accounts[0]);
   };
-
+  function buyrent() {
+    navigate("/buyrent");
+  }
 
   return (
     <div className="navbar bg-base-100">
@@ -26,29 +27,28 @@ function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Rent/Buy</a>
+            <a>
+              <button onClick={buyrent}>Rent/Buy</button>
+            </a>
           </li>
           <li tabIndex={0}>
             <a>Upload Product</a>
           </li>
           <li>
             <a>
-            <button
-          onClick={connectFormHandler}
-          style={{ marginRight: "20px", marginLeft: "20px" }}
-          exact
-          className=" btn btn-outline"
-        >
-        {(accountAddress)
-            ? 
-            `${accountAddress.substr(0, 5)}...${accountAddress.substr(
-                37,
-                42
-
-              )}`
-          
-            : "connect"}
-        </button>
+              <button
+                onClick={connectFormHandler}
+                style={{ marginRight: "20px", marginLeft: "20px" }}
+                exact
+                className=" btn btn-outline"
+              >
+                {accountAddress
+                  ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
+                      37,
+                      42
+                    )}`
+                  : "connect"}
+              </button>
             </a>
           </li>
         </ul>
