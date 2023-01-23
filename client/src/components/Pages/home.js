@@ -1,5 +1,10 @@
+import Payment from "./Payment";
 function Home() {
-  return <div>this is Home</div>;
+  return (
+    <div>
+      <Payment />
+    </div>
+  );
 }
 
 export default Home;
