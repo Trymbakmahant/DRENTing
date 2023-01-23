@@ -1,4 +1,5 @@
 import { useState, useRef, useContext } from "react";
+import axios from "axios";
 function Upload() {
   const name = useRef();
   const description = useRef();
@@ -6,12 +7,30 @@ function Upload() {
   const catogory = useRef();
   const rental = useRef();
   const buying = useRef();
+  const owner = "address of uploader";
 
-  const submitter = () => {
-    console.log(name.current.value);
+  const submitter = async () => {
+    const datais = {
+      name: name.current.value,
+      description: description.current.value,
+      image: image.current.value,
+      catogory: catogory.current.value,
+      rental: rental.current.value,
+      buying: buying.current.value,
+      owner,
+    };
+    try {
+      const data = await axios.post(
+        "http://localhost:8081/api/postproduct",
+        datais
+      );
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
-    <div>
+    <div className="grid justify-items-center ">
       <div className="form-control w-full max-w-xs">
         <label className="label">
           <span className="label-text">product's name</span>
@@ -78,9 +97,12 @@ function Upload() {
           className="input input-bordered w-full max-w-xs"
         />
       </div>
-      <button className="btn btn-success" onClick={submitter}>
-        Submit
-      </button>
+      <div className="pt-2">
+        {" "}
+        <button className="btn btn-success " onClick={submitter}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 }
