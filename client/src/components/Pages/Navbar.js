@@ -1,10 +1,11 @@
 import { ethers } from "ethers";
 import { useState, useContext, useEffect } from "react";
 import { accContext } from "../context/accountContext";
-import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 function Navbar() {
   const ctx = useContext(accContext);
-  const navigate = useNavigate();
+
   const accountAddress = ctx.dataState.acclogin.accountAddress;
 
   const connectFormHandler = async () => {
@@ -15,9 +16,6 @@ function Navbar() {
     const signer = provider.getSigner();
     ctx.dataState.addData(provider, signer, accounts[0]);
   };
-  function buyrent() {
-    navigate("/buyrent");
-  }
 
   return (
     <div className="navbar bg-base-100">
@@ -27,12 +25,25 @@ function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>
-              <button onClick={buyrent}>Rent/Buy</button>
-            </a>
+            <Link
+              style={{ marginRight: "20px" }}
+              exact
+              className="nav-link btn-ghost"
+              to="/buyrent"
+            >
+              Rent/Buy
+            </Link>
           </li>
+
           <li tabIndex={0}>
-            <a>Upload Product</a>
+            <Link
+              style={{ marginRight: "20px" }}
+              exact
+              className="nav-link btn-ghost"
+              to="/upload"
+            >
+              Upload Video
+            </Link>
           </li>
           <li>
             <a>

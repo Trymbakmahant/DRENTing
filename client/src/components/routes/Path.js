@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 
-
 import Buyrentcard from "../cards/Buyrentcard";
 
 import Home from "../Pages/home";
@@ -10,8 +9,7 @@ const Paths = () => {
     <Routes>
       <Route exact path="/" element={<Home />} />
 
-      <Route exact path="/buyrent" element={<Buyrentcard/>}/>
-
+      <Route exact path="/buyrent" element={<Buyrentcard />} />
     </Routes>
   );
 };
