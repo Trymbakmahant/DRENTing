@@ -30,7 +30,8 @@ function Upload() {
     }
   };
   return (
-    <div className="grid justify-items-center ">
+    <div className="grid justify-items-center pt-20 ">
+     
       <div className="form-control w-full max-w-xs">
         <label className="label">
           <span className="label-text">product's name</span>
