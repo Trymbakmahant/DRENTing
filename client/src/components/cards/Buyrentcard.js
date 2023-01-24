@@ -31,7 +31,14 @@ const Buyrentcard = () => {
        
           posts.map((post) => (
             <div className=" p-8 	">
-              <div className="card w-96 h-96 card-bordered  glass ">
+
+              <div className="card w-96 h-96 card-bordered shadow-xl  glass ">
+              <a
+            
+              href="/buyrent/[_id]"
+            >
+            
+            
                 <figure>
                   <a href={post.imageUrl}>
                     <img
@@ -50,6 +57,7 @@ const Buyrentcard = () => {
                     <button className="btn  ">Buy Now</button>
                   </div>
                 </div>
+              </a>
               </div>
             </div>
           ))}
