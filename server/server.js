@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const connection = require("./db");
 const PostProdcut = require("./routes/ProductUpdate");
 const ProductData = require("./routes/ProductData");
+const Checkid = require("./routes/CheckId");
 connection();
 
 // middlewares
@@ -24,5 +25,7 @@ app.use(
 app.use(cors());
 app.use("/api/postproduct", PostProdcut);
 app.use("/api/productData", ProductData);
+app.use("/api/Checkid", Checkid);
+
 const port = 8081;
 app.listen(port, console.log(`Listening on port ${port}...`));
