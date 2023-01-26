@@ -1,13 +1,17 @@
 import { useState, useRef, useContext } from "react";
 import axios from "axios";
+import { accContext } from "../context/accountContext";
+
 function Upload() {
+  const ctx = useContext(accContext);
+  
   const name = useRef();
   const description = useRef();
   const image = useRef();
   const catogory = useRef();
   const rental = useRef();
   const buying = useRef();
-  const owner = "address of uploader";
+  const owner = ctx.dataState. acclogin. accountAddress;
 
   const submitter = async () => {
     const datais = {
