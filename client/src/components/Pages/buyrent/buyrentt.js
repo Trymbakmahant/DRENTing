@@ -31,26 +31,40 @@ const Buy = () => {
   }, []);
   return (
     <>
-      <div className=" p-8 	">
-        {post[0] && post[0]._id && (
-          <div className="card card-side h-screen	 shadow-2xl justify-items-center pt-20   glass ">
-            <figure>
-              <img className="	 w-auto h-full	 " src={post[0].imageUrl} />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{post[0].name}</h2>
-              {/* <h2>DESCRIPTION!</h2> */}
-              <p>{post[0].description}</p>
-              <div className="card-actions justify-end">
-                <button className="btn " onClick={payment}>
-                  Rent Now
-                </button>
-                <button className="btn  ">Buy Now</button>
-              </div>
+
+     <div className="flex p-8 justify-center pt-20	">
+        { post[0]&&post[0]._id&& <div className="card card-side h-8/12	w-8/12 shadow-2xl    glass ">
+                  
+                    <figure>
+                      
+                        <img className="	 w-[1000px] h-[700px] scale-75	 "
+                          src={post[0].imageUrl}
+                          
+                          
+                        />
+                    
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title">{post[0].name}</h2>
+                      {/* <h2>DESCRIPTION!</h2> */}
+                      <div> About the Item</div>
+                      <p>{post[0].description}</p>
+                   <div className="font-mono text-xl">rent price: </div>
+                      <div> { post[0].rental}</div>
+                   <div className="font-mono text-xl">buy price: </div>
+                      {/* <button className="btn  ">Buy Now</button> */}
+                   <div> {post[0].buying}</div>
+                      <div className="card-actions justify-end">
+                        <button className="btn " onClick={payment}>Rent Now</button>
+                        <button className="btn  ">Buy Now</button>
+                      </div>
+                    </div>
+                
+                </div>}
+
             </div>
-          </div>
-        )}
-      </div>
+         
+       
     </>
   );
 };

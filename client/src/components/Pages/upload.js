@@ -34,7 +34,7 @@ function Upload() {
     }
   };
   return (
-    <div className="grid justify-items-center pt-20 ">
+    <div className="grid justify-items-center border-4	border-spacing-x-48 border-spacing-y-96 pt-20 ">
      
       <div className="form-control w-full max-w-xs">
         <label className="label">
