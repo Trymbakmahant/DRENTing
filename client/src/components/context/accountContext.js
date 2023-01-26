@@ -8,6 +8,7 @@ const Wrapper = (props) => {
     signer: null,
     accountAddress: null,
   });
+  const [post,setPost] = useState([]);
   function addData(provider, signer, accountAddress) {
     setAcclogin((prevState) => {
       return {
@@ -65,7 +66,10 @@ const Wrapper = (props) => {
     createNewFlow,
     addData,
     acclogin,
+    post,
+    setPost
   };
+
   console.log(acclogin);
   return (
     <accContext.Provider value={{ dataState }}>
