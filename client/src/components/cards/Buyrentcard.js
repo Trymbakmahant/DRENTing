@@ -34,7 +34,7 @@ const Buyrentcard = () => {
           posts.map((post) => (
             <div className=" p-8 	">
 
-              <div className="card card-compact w-96 h-96   glass ">
+              <div className="card card-compact w-96 h-96  ring-offset-2 ring-2 glass ">
               
                   <figure>
                     <a href={post.imageUrl}>
