@@ -33,7 +33,7 @@ const Buy = () => {
     <>
 
      <div className="flex p-8 justify-center pt-20	">
-        { post[0]&&post[0]._id&& <div className="card card-side h-8/12	w-8/12 shadow-2xl    glass ">
+        { post[0]&&post[0]._id&& <div className="card card-side h-8/12	w-8/12 shadow-xl  ring ring-offset-4 glass ">
                   
                     <figure>
                       
