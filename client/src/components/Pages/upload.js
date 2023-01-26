@@ -34,7 +34,7 @@ function Upload() {
     }
   };
   return (
-    <div className="grid justify-items-center border-4	border-spacing-x-48 border-spacing-y-96 pt-20 ">
+    <div className="grid justify-items-center    border-4 pt-20 ">
      
       <div className="form-control w-full max-w-xs">
         <label className="label">
@@ -44,7 +44,7 @@ function Upload() {
           type="text"
           ref={name}
           placeholder="Type here"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered ring ring-blue-500/[.55]  w-full max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -55,7 +55,7 @@ function Upload() {
           type="text"
           ref={description}
           placeholder="Type here"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -66,7 +66,7 @@ function Upload() {
           type="text"
           ref={image}
           placeholder="Type here"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered  w-full ring ring-blue-500/[.55]  max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -77,7 +77,7 @@ function Upload() {
           type="text"
           ref={catogory}
           placeholder="Type here"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full ring ring-blue-500/[.55] max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -88,7 +88,7 @@ function Upload() {
           type="text"
           ref={rental}
           placeholder="Type here"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -99,10 +99,10 @@ function Upload() {
           type="text"
           placeholder="Type here"
           ref={buying}
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
         />
       </div>
-      <div className="pt-2">
+      <div className="pt-2 pb-1">
         {" "}
         <button className="btn btn-success " onClick={submitter}>
           Submit
