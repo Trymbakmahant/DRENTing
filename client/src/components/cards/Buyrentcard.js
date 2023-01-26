@@ -34,15 +34,17 @@ const Buyrentcard = () => {
           posts.map((post) => (
             <div className=" p-8 	">
 
-              <div className="card w-96 h-96   glass ">
+              <div className="card card-compact w-96 h-96   glass ">
               
                   <figure>
-                    
-                      <img
+                    <a href={post.imageUrl}>
+
+                      <img h
                         src={post.imageUrl}
-                        
+                        onClick={post.imageUrl}
                         
                       />
+                    </a>
                  
                   </figure>
                   <div className="card-body">
@@ -52,7 +54,7 @@ const Buyrentcard = () => {
                 >
                     <h2 className="card-title">{post.name}</h2>
                     {/* <h2>DESCRIPTION!</h2> */}
-                    <p>{post.description}</p>
+                    <p>About this Item : {post.description}</p>
                     <div className="card-actions justify-end">
                    {/* <button className="btn ">Rent Now</button> */}
                    <div className="font-mono text-xl">rent price: </div>

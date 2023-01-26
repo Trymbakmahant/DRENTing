@@ -25,11 +25,11 @@ const Buy = () => {
   return (
     <>
      <div className=" p-8 	">
-        { post[0]&&post[0]._id&& <div className="card w-96 h-96   glass ">
+        { post[0]&&post[0]._id&& <div className="card card-side h-screen	 shadow-2xl justify-items-center pt-20   glass ">
                   
                     <figure>
                       
-                        <img
+                        <img className="	 w-auto h-full	 "
                           src={post[0].imageUrl}
                           
                           
