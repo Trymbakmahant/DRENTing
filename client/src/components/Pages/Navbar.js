@@ -20,7 +20,14 @@ function Navbar() {
   return (
     <div className="navbar border-2 bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">DRENTing</a>
+        <Link
+          style={{ marginRight: "20px" }}
+          exact
+          className="btn btn-ghost normal-case text-xl"
+          to="/"
+        >
+          DRENTing
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
