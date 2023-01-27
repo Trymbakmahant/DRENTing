@@ -1,24 +1,25 @@
-import { useContext, useEffect, useState ,useRef} from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { accContext } from "../../context/accountContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 const Buy = () => {
   const [post, setPost] = useState([]);
   const [owner, setOwner] = useState("");
+
   const [flowrate, setFlowrate] = useState("");
   const { _id } = useParams();
   const ctx = useContext(accContext);
   const startdateInputRef = useRef(null);
-    const enddateInputRef = useRef(null);
-    const [startdate, setStartDate] = useState('');
-    const [enddate, setEndDate] = useState('');
+  const enddateInputRef = useRef(null);
+  const [startdate, setStartDate] = useState("");
+  const [enddate, setEndDate] = useState("");
 
-  const handlestartChange = (e) => {
-    setStartDate(e.target.value);
-  };
-  const handleendChange = (e) => {
-    setEndDate(e.target.value);
-  };
+  const handlestartChange = (e) => {
+    setStartDate(e.target.value);
+  };
+  const handleendChange = (e) => {
+    setEndDate(e.target.value);
+  };
 
   const b = async () => {
     try {
@@ -33,9 +34,16 @@ const Buy = () => {
       console.log(err);
     }
   };
-
+  const user = ctx.dataState.acclogin.accountAddress;
+  const nameofproduct = post[0].name;
   async function payment() {
-    ctx.dataState.createNewFlow(owner, flowrate);
+    await ctx.dataState.createNewFlow(owner, flowrate);
+    const dataofhistory = { flowrate, user, startdate, enddate, nameofproduct };
+    const data = await axios.post(
+      "http://localhost:8081/api/history",
+      dataofhistory
+    );
+    console.log(data);
   }
 
   useEffect(() => {
@@ -63,37 +71,44 @@ const Buy = () => {
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying}</div>
               <div className="card-actions justify-end">
-               
-                <a href="#my-modal-2" className="btn">rent now</a>
+                <a href="#my-modal-2" className="btn">
+                  rent now
+                </a>
                 <button className="btn  ">Buy Now</button>
                 <div className="modal" id="my-modal-2">
-                <div className="modal-box">
-                <div className="flex justify-between">
-                <div>
-                    <input
-                      type="date"
-                      onChange={handlestartChange}
-                      ref={startdateInputRef}
-                    />
-                    <p className="pl-11">Start Date: {startdate}</p>
-                  </div>
-                <div>
-                    <input
-                      type="date"
-                      onChange={handleendChange}
-                      ref={enddateInputRef}
-                    />
-                    <p className="pl-11">End Date: {enddate}</p>
-                  </div>
-              </div>
-    <p className="py-4">total money you have to pay for this ...</p>
-    <div className="modal-action">
-     <a href="#" className="btn" onClick={payment}>make payment</a>
-    </div>
-  </div>
-</div>
-             
-            
+                  <div className="modal-box">
+                    <div className="flex justify-between">
+                      <div>
+                              
+                        <input
+                          type="date"
+                          onChange={handlestartChange}
+                          ref={startdateInputRef}
+                        />
+                              <p className="pl-11">Start Date: {startdate}</p>
+                            
+                      </div>
+                      <div>
+                              
+                        <input
+                          type="date"
+                          onChange={handleendChange}
+                          ref={enddateInputRef}
+                        />
+                              <p className="pl-11">End Date: {enddate}</p>
+                            
+                      </div>
+                    </div>
+                    <p className="py-4">
+                      total money you have to pay for this ...
+                    </p>
+                    <div className="modal-action">
+                      <a href="#" className="btn" onClick={payment}>
+                        make payment
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

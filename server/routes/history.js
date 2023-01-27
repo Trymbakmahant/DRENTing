@@ -3,12 +3,11 @@ const History = require("../models/history");
 
 router.route("/").post(async (req, res) => {
   try {
-    const { Flowrate, addressofuser, productname, startdate, enddate } =
-      req.body;
+    const { flowrate, user, startdate, enddate, productname } = req.body;
 
     const history = new Hsitory({
-      Flowrate,
-      addressofuser,
+      flowrate,
+      user,
       productname,
       startdate,
       enddate,

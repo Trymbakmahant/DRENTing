@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 const history = new mongoose.Schema({
-  Flowrate: { type: String, required: true },
-  addressofuser: { type: String, required: true },
+  flowrate: { type: String, required: true },
+  user: { type: String, required: true },
   productname: { type: String, required: true },
   startdate: { type: String, required: true },
   enddate: { type: String, required: true },
