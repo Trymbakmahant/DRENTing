@@ -44,7 +44,7 @@ function Upload() {
           type="text"
           ref={name}
           placeholder="Type here"
-          className="input input-bordered ring ring-blue-500/[.55]  w-full max-w-xs"
+          className="input input-bordered ring   ring-current w-full max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -55,7 +55,7 @@ function Upload() {
           type="text"
           ref={description}
           placeholder="Type here"
-          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
+          className="input input-bordered w-full ring  ring-current max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -66,7 +66,7 @@ function Upload() {
           type="text"
           ref={image}
           placeholder="Type here"
-          className="input input-bordered  w-full ring ring-blue-500/[.55]  max-w-xs"
+          className="input input-bordered  w-full ring  ring-current max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -77,7 +77,7 @@ function Upload() {
           type="text"
           ref={catogory}
           placeholder="Type here"
-          className="input input-bordered w-full ring ring-blue-500/[.55] max-w-xs"
+          className="input input-bordered w-full ring  ring-current max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -88,7 +88,7 @@ function Upload() {
           type="text"
           ref={rental}
           placeholder="Type here"
-          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
+          className="input input-bordered w-full ring  ring-current  max-w-xs"
         />
       </div>
       <div className="form-control w-full max-w-xs">
@@ -99,12 +99,12 @@ function Upload() {
           type="text"
           placeholder="Type here"
           ref={buying}
-          className="input input-bordered w-full ring ring-blue-500/[.55]  max-w-xs"
+          className="input input-bordered w-full ring ring-current  max-w-xs"
         />
       </div>
-      <div className="pt-2 pb-1">
+      <div className="pt-3 pb-4">
         {" "}
-        <button className="btn btn-success " onClick={submitter}>
+        <button className="btn btn-current outline " onClick={submitter}>
           Submit
         </button>
       </div>
