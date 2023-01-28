@@ -41,6 +41,16 @@ function Navbar() {
               Rent/Buy
             </Link>
           </li>
+          <li>
+            <Link
+              style={{ marginRight: "20px" }}
+              exact
+              className="nav-link btn-ghost"
+              to="/history"
+            >
+              History
+            </Link>
+          </li>
 
           <li tabIndex={0}>
             <Link

@@ -5,7 +5,7 @@ import axios from "axios";
 const Buy = () => {
   const [post, setPost] = useState([]);
   const [owner, setOwner] = useState("");
-
+  const [name, setName] = useState("");
   const [flowrate, setFlowrate] = useState("");
   const { _id } = useParams();
   const ctx = useContext(accContext);
@@ -29,16 +29,18 @@ const Buy = () => {
       setPost(data);
       setOwner(data[0].owner);
       setFlowrate(data[0].rental);
+      setName(data[0].name);
       console.log(owner);
     } catch (err) {
       console.log(err);
     }
   };
   const user = ctx.dataState.acclogin.accountAddress;
-  const nameofproduct = post[0].name;
+  const productname = name;
+
   async function payment() {
     await ctx.dataState.createNewFlow(owner, flowrate);
-    const dataofhistory = { flowrate, user, startdate, enddate, nameofproduct };
+    const dataofhistory = { flowrate, user, startdate, enddate, productname };
     const data = await axios.post(
       "http://localhost:8081/api/history",
       dataofhistory
@@ -103,9 +105,7 @@ const Buy = () => {
                       total money you have to pay for this ...
                     </p>
                     <div className="modal-action">
-                      <a href="#" className="btn" onClick={payment}>
-                        make payment
-                      </a>
+                      <button onClick={payment}> make payment</button>
                     </div>
                   </div>
                 </div>
