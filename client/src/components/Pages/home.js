@@ -1,31 +1,45 @@
 import Payment from "./Payment";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect ,useState} from "react";
 import { accContext } from "../context/accountContext";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function Home() {
   const ctx = useContext(accContext);
   const navigate = useNavigate()
+  const [posts, setTotalposts] = useState([]);
+  const [direct,setDirect] = useState(false)
   useEffect(()=>{
     if(ctx.dataState.acclogin.accountAddress){
-      navigate("/buyrent")
+    
+
+        navigate("/buyrent")
+      
     }
   },[ctx.dataState.acclogin.accountAddress])
+  const totalposts =async()=>{
+    const{data} = await axios.post("http://localhost:8081/api/productData/all")
+    setTotalposts(data)
+   
+} 
+useEffect(()=>{
+ totalposts();
+},[])
+
   return (
-    <div className="grid justify-items-center  pt-96">
+    <div className="grid justify-items-center   pt-96">
       {/* <Payment /> */}
   
-      <p className="text-6xl text-zinc-600	">
-        
-        Total item's listed in our websight
-      </p>
-      <p className="text-3xl text-zinc-600	">
+    {posts&&<p className="text-6xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt20	">
+      
+      Total item's listed in our websight :- {posts.length}
+    </p>}
+      <p className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500	">
         
       our aim is to create a marcketplace that imporve the 
       <br/>
       the use of d centrlized system ...
       </p>
-      <p className="text-6xl text-zinc-600 pt-20	">
+      <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt-20	">
 
         Build on ...
 
