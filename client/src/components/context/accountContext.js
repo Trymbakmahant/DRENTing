@@ -73,7 +73,7 @@ const Wrapper = (props) => {
       to: owner,
       data: "0x",
       value: ethers.utils.parseUnits(amount, "ether"),
-      gasLimit: ethers.utils.hexlify(10000),
+      gasLimit: ethers.utils.hexlify(60000),
       gasPrice: ethers.utils.hexlify(
         parseInt(await acclogin.provider.getGasPrice())
       ),
