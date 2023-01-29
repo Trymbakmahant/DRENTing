@@ -62,12 +62,40 @@ const Wrapper = (props) => {
     }
   }
 
+  //this is for buying
+  
+  
+
+  const requestPolygonTransaction = async (owner,polygonAmount) => {
+ 
+  const transactionParameters = {
+    from: acclogin.accountAddress,
+    to:  owner, 
+    data: '0x',
+    value: ethers.utils.parseUnits(polygonAmount,'ether'),
+    gasLimit: ethers.utils.hexlify(10000),
+    gasPrice: ethers.utils.hexlify(parseInt(await acclogin.provider.getGasPrice())),
+  }
+
+  await acclogin.signer.sendTransaction(transactionParameters)
+    .then((transaction) => {
+   
+      console.log(" successful")
+    })
+    .catch((e) => {
+      console.log('failed! : please check the amount ')
+     
+      return
+    })
+  }
+//
   const dataState = {
     createNewFlow,
     addData,
     acclogin,
     post,
-    setPost
+    setPost,
+    requestPolygonTransaction
   };
 
   console.log(acclogin);
