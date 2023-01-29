@@ -17,7 +17,7 @@ const Buy = () => {
   const [enddate, setEndDate] = useState("");
   const ctx = useContext(accContext);
   const startdateInputRef = useRef(null);
-  const [polygonAmount ,setpolygonAmount] = useState("")
+  const [polygonAmount, setpolygonAmount] = useState("");
   const b = async () => {
     try {
       const { data } = await axios.post("http://localhost:8081/api/Checkid", {
@@ -27,7 +27,7 @@ const Buy = () => {
       setOwner(data[0].owner);
       setFlowrate(data[0].rental);
       setName(data[0].name);
-      setpolygonAmount(data[0].buying)
+      setpolygonAmount(data[0].buying);
       console.log(owner);
     } catch (err) {
       console.log(err);
@@ -55,15 +55,16 @@ const Buy = () => {
   const handleendChange = (e) => {
     setEndDate(e.target.value);
   };
-  
+
   //this section is  for the performing  buy operation
-  async  function buy(){
-    try{ 
-    await  ctx.dataState.requestPolygonTransaction(owner,polygonAmount);
-    alert("payment success -full")
-   }catch(e){
-    console.log(e)
-   }
+  async function buy() {
+    try {
+      console.log(polygonAmount);
+      await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
+      alert("payment success -full");
+    } catch (e) {
+      console.log(e);
+    }
   }
   //
   useEffect(() => {
@@ -94,7 +95,10 @@ const Buy = () => {
               <a href="#my-modal-2" className="btn btn-current outline">
                 {loading ? "Loading...." : "rent now  "}
               </a>
-              <button className="btn btn-current outline " onClick={buy}> {loading ? "Loading...." : "buy nows "}</button>
+              <button className="btn btn-current outline " onClick={buy}>
+                {" "}
+                {loading ? "Loading...." : "buy nows "}
+              </button>
 
               <div className="modal " id="my-modal-2">
                 <div className="modal-box">

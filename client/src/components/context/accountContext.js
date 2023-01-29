@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { ethers } from "ethers";
+import { BigNumber } from "ethers";
 import { Framework } from "@superfluid-finance/sdk-core";
 export const accContext = createContext({});
 const Wrapper = (props) => {
@@ -8,7 +9,7 @@ const Wrapper = (props) => {
     signer: null,
     accountAddress: null,
   });
-  const [post,setPost] = useState([]);
+  const [post, setPost] = useState([]);
   function addData(provider, signer, accountAddress) {
     setAcclogin((prevState) => {
       return {
@@ -63,39 +64,40 @@ const Wrapper = (props) => {
   }
 
   //this is for buying
-  
-  
 
-  const requestPolygonTransaction = async (owner,polygonAmount) => {
- 
-  const transactionParameters = {
-    from: acclogin.accountAddress,
-    to:  owner, 
-    data: '0x',
-    value: ethers.utils.parseUnits(polygonAmount,'ether'),
-    gasLimit: ethers.utils.hexlify(10000),
-    gasPrice: ethers.utils.hexlify(parseInt(await acclogin.provider.getGasPrice())),
-  }
+  const requestPolygonTransaction = async (owner, polygonAmount) => {
+    const amount = ethers.utils.formatEther(polygonAmount);
+    console.log(amount);
+    const transactionParameters = {
+      from: acclogin.accountAddress,
+      to: owner,
+      data: "0x",
+      value: ethers.utils.parseUnits(amount, "ether"),
+      gasLimit: ethers.utils.hexlify(10000),
+      gasPrice: ethers.utils.hexlify(
+        parseInt(await acclogin.provider.getGasPrice())
+      ),
+    };
 
-  await acclogin.signer.sendTransaction(transactionParameters)
-    .then((transaction) => {
-   
-      console.log(" successful")
-    })
-    .catch((e) => {
-      console.log('failed! : please check the amount ')
-     
-      return
-    })
-  }
-//
+    await acclogin.signer
+      .sendTransaction(transactionParameters)
+      .then((transaction) => {
+        console.log(" successful");
+      })
+      .catch((e) => {
+        console.log("failed! : please check the amount ");
+
+        return;
+      });
+  };
+  //
   const dataState = {
     createNewFlow,
     addData,
     acclogin,
     post,
     setPost,
-    requestPolygonTransaction
+    requestPolygonTransaction,
   };
 
   console.log(acclogin);
