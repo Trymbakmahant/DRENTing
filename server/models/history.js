@@ -6,6 +6,7 @@ const history = new mongoose.Schema({
   productname: { type: String, required: true },
   startdate: { type: String, required: true },
   enddate: { type: String, required: true },
+  owner: { type: String, required: true },
 });
 
 const History = mongoose.model("History", history);

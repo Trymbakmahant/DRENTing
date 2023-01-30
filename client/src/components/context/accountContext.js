@@ -63,6 +63,46 @@ const Wrapper = (props) => {
     }
   }
 
+  // for cancillation
+  // refrence https://codesandbox.io/s/cfa-deleteflow-metamask-3mio8c?from-embed=&file=/src/DeleteFlow.js:283-1552
+  async function deleteExistingFlow(recipient) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    const sf = await Framework.create({
+      chainId: 80001,
+      provider: provider,
+    });
+
+    console.log(recipient);
+
+    try {
+      const deleteFlowOperation = sf.cfaV1.deleteFlow({
+        sender: await signer.getAddress(),
+        receiver: recipient,
+        superToken: "0x96B82B65ACF7072eFEb00502F45757F254c2a0D4",
+        // userData?: string
+      });
+
+      console.log(deleteFlowOperation);
+      console.log("Deleting your stream...");
+
+      const result = await deleteFlowOperation.exec(signer);
+      console.log(result);
+
+      console.log(
+        `Congrats - you've just updated a money stream!
+    `
+      );
+    } catch (error) {
+      console.log(
+        "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+      );
+      console.error(error);
+    }
+  }
+
   //this is for buying
 
   const requestPolygonTransaction = async (owner, polygonAmount) => {
@@ -98,6 +138,7 @@ const Wrapper = (props) => {
     post,
     setPost,
     requestPolygonTransaction,
+    deleteExistingFlow,
   };
 
   console.log(acclogin);

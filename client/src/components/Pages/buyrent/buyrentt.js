@@ -39,7 +39,14 @@ const Buy = () => {
   async function payment() {
     setLoading(true);
     await ctx.dataState.createNewFlow(owner, flowrate);
-    const dataofhistory = { flowrate, user, startdate, enddate, productname };
+    const dataofhistory = {
+      flowrate,
+      user,
+      startdate,
+      enddate,
+      productname,
+      owner,
+    };
     const data = await axios.post(
       "http://localhost:8081/api/history",
       dataofhistory
