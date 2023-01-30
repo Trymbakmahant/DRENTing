@@ -8,6 +8,7 @@ import { accContext } from "../context/accountContext";
 const Buyrentcard = () => {
   const ctx= useContext(accContext)
   const [posts, setPost] = useState([]);
+  const [ c, setC] = useState(true);
   const a = async () => {
     try {
       const { data } = await axios.post(
@@ -19,6 +20,10 @@ const Buyrentcard = () => {
       console.log(err);
     }
   };
+
+
+  // code for tags 
+
 
   useEffect(() => {
     a();
@@ -34,7 +39,7 @@ const Buyrentcard = () => {
           posts.map((post) => (
             <div className=" p-8 	">
 
-              <div className="card card-compact w-96 h-96  ring-offset-2 ring-2 glass ">
+            <div className="card card-compact w-96 h-96 ring-2 ring-current glass " >
               
                   <figure>
                     <a href={post.imageUrl}>
@@ -54,6 +59,7 @@ const Buyrentcard = () => {
                 >
                     <h2 className="card-title">{post.name}</h2>
                     {/* <h2>DESCRIPTION!</h2> */}
+                    <div class="badge badge-secondary">{c?"avilable":"not-avaliable"}</div>
                     <p>About this Item : {post.description}</p>
                     <div className="card-actions justify-end">
                    {/* <button className="btn ">Rent Now</button> */}
