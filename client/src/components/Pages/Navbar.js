@@ -26,6 +26,9 @@ function Navbar() {
           className="btn btn-ghost normal-case text-xl"
           to="/"
         >
+        
+  
+
           DRENTing
         </Link>
       </div>
