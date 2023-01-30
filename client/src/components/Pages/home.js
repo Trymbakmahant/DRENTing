@@ -53,7 +53,7 @@ function Home() {
             onClick={connectFormHandler}
             style={{ marginRight: "20px", marginLeft: "20px" }}
             exact
-            className=" btn text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
+            className=" btn text-2xl bg-clip-text text-transparent rounded-full outline  bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
           >
             {accountAddress
               ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
@@ -63,7 +63,7 @@ function Home() {
               : "  start your shopping !"}
           </button>
         </p>
-        <img src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
+        <img  className ="rounded-lg " src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
       </div>
       <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt-20	">
         Build on ... " Superfluid"
