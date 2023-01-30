@@ -39,7 +39,7 @@ function Home() {
       {/* <Payment /> */}
       {posts && (
         <p className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
-          Total item's listed in our websight :- {posts.length}
+          Total item's listed in our website :- {posts.length}
         </p>
       )}
       <div className="flex justify-between ... pt-20 pb-40">

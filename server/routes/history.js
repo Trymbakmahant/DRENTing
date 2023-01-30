@@ -26,11 +26,10 @@ router.route("/").post(async (req, res) => {
 
 router.route("/get").post(async (req, res) => {
   try {
-    console.log(req.body);
     const adress = req.body.adress;
-    console.log(adress);
+
     const Result = await History.find({ user: { $eq: adress } });
-    console.log(Result);
+
     res.send(Result);
   } catch (err) {
     console.log(err);

@@ -30,9 +30,6 @@ const Wrapper = (props) => {
       provider: provider,
     });
 
-    // const DAIxContract = await sf.loadSuperToken("fDAIx");
-    // const DAIx = DAIxContract.address;
-
     try {
       const createFlowOperation = sf.cfaV1.createFlow({
         flowRate: calculatedFlowRate,
@@ -45,17 +42,6 @@ const Wrapper = (props) => {
 
       const result = await createFlowOperation.exec(signer);
       console.log(result);
-
-      console.log(
-        `Congrats - you've just created a money stream!
-        View Your Stream At: https://app.superfluid.finance/dashboard/${recipient}
-        Network: Goerli
-        Super Token: DAIx
-       
-        Receiver: ${recipient},
-        FlowRate: ${flowRate}
-        `
-      );
     } catch (error) {
       console.log(
         "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
@@ -64,8 +50,6 @@ const Wrapper = (props) => {
     }
   }
 
-  // for cancillation
-  // refrence https://codesandbox.io/s/cfa-deleteflow-metamask-3mio8c?from-embed=&file=/src/DeleteFlow.js:283-1552
   async function deleteExistingFlow(recipient) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -91,11 +75,6 @@ const Wrapper = (props) => {
 
       const result = await deleteFlowOperation.exec(signer);
       console.log(result);
-
-      console.log(
-        `Congrats - you've just updated a money stream!
-    `
-      );
     } catch (error) {
       console.log(
         "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
@@ -131,7 +110,7 @@ const Wrapper = (props) => {
         return;
       });
   };
-//
+  //
   const dataState = {
     createNewFlow,
     addData,
