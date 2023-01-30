@@ -21,7 +21,8 @@ const Wrapper = (props) => {
   }
   async function createNewFlow(recipient, flowRate) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-
+    const calculatedFlowRate = Math.floor(flowRate / 3600 / 24 / 30);
+    console.log(calculatedFlowRate);
     const signer = provider.getSigner();
 
     const sf = await Framework.create({
@@ -34,7 +35,7 @@ const Wrapper = (props) => {
 
     try {
       const createFlowOperation = sf.cfaV1.createFlow({
-        flowRate: flowRate,
+        flowRate: calculatedFlowRate,
         receiver: recipient,
         superToken: "0x96B82B65ACF7072eFEb00502F45757F254c2a0D4",
         // userData?: string

@@ -4,7 +4,7 @@ import { accContext } from "../context/accountContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ethers } from "ethers";
-import image from "./logo.png";
+import image from "./image2.png";
 function Home() {
   const ctx = useContext(accContext);
   const accountAddress = ctx.dataState.acclogin.accountAddress;
@@ -38,22 +38,49 @@ function Home() {
     <div className="grid justify-items-center   pt-20">
       {/* <Payment /> */}
       {posts && (
-        <p className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt-20	">
+        <p className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
           Total item's listed in our websight :- {posts.length}
         </p>
       )}
-      <div className="flex justify-between ... pt-20">
+      <div className="flex justify-between ... pt-20 pb-40">
         {" "}
-        <p className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt-20 pr-10	">
-          our aim is to create a marcketplace that imporve the
+        <p className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20 pr-10 pl-10">
+          <div className="pb-10">
+            {" "}
+            "Empowering renters, revolutionizing rentals - A decentralized
+            solution."
+          </div>
           <br />
-          the use of d centrlized system ...
+          <div className="pb-10">
+            {" "}
+            Introducing, Decentralized E-commerce using Web3 technology. With
+            Web3, we can now create a decentralized network where transactions
+            occur directly between individuals, without the need for
+            intermediaries. This means that personal data and money will be kept
+            securely on the blockchain, without the risk of being hacked or
+            misused by third parties. It also means that merchants can offer
+            their goods and services directly to consumers, without the fees and
+            restrictions imposed by traditional e-commerce platforms.
+            Decentralized e-commerce is not only about security and control,
+            it's about creating a more equitable and accessible online
+            marketplace. It enables anyone, anywhere in the world, to
+            participate in the global economy, regardless of their financial
+            status or geographic location.
+          </div>
           <br />
           <button
             onClick={connectFormHandler}
             style={{ marginRight: "20px", marginLeft: "20px" }}
             exact
+<<<<<<< Updated upstream
             className=" btn text-2xl bg-clip-text text-transparent rounded-full outline  bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
+=======
+<<<<<<< HEAD
+            className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50  pb-5 pl-10 "
+=======
+            className=" btn text-2xl bg-clip-text text-transparent rounded-full outline  bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
+>>>>>>> 4dd51faf7a551d160581413317a200655320825f
+>>>>>>> Stashed changes
           >
             {accountAddress
               ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
@@ -63,9 +90,17 @@ function Home() {
               : "  start your shopping !"}
           </button>
         </p>
+<<<<<<< Updated upstream
         <img  className ="rounded-lg " src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
+=======
+<<<<<<< HEAD
+        <img className="pl-20" src={image} alt="" />
+=======
+        <img  className ="rounded-lg " src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
+>>>>>>> 4dd51faf7a551d160581413317a200655320825f
+>>>>>>> Stashed changes
       </div>
-      <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pt-20	">
+      <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
         Build on ... " Superfluid"
       </p>
 

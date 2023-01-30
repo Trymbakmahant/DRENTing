@@ -23,7 +23,7 @@ function History() {
     callfunction();
   }, [data.adress]);
   return (
-    <div className="{{classes.box}}">
+    <div className="flex justify-center pt-10 ">
       {histry.map((data) => (
         <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">
           <div className="card-body">

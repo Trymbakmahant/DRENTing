@@ -94,10 +94,10 @@ const Buy = () => {
               <div> About the Item</div>
               <p>{post[0].description}</p>
               <div className="font-mono text-xl">rent price: </div>
-              <div> {post[0].rental}</div>
+              <div> {post[0].rental} wei/monthly</div>
               <div className="font-mono text-xl">buy price: </div>
               {/* <button className="btn  ">Buy Now</button> */}
-              <div> {post[0].buying}</div>
+              <div> {post[0].buying} wei</div>
 
               <a href="#my-modal-2" className="btn btn-current outline">
                 {loading ? "Loading...." : "rent now  "}
