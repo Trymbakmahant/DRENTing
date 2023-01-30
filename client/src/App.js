@@ -4,7 +4,7 @@ import Navbar from "./components/Pages/Navbar";
 import Path from "./components/routes/Path";
 function App() {
   return (
-    <div className="devide-x">
+    <div className=" ">
       <Navbar />
      
       <Path />
