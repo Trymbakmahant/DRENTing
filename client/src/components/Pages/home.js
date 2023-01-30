@@ -72,15 +72,7 @@ function Home() {
             onClick={connectFormHandler}
             style={{ marginRight: "20px", marginLeft: "20px" }}
             exact
-<<<<<<< Updated upstream
-            className=" btn text-2xl bg-clip-text text-transparent rounded-full outline  bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
-=======
-<<<<<<< HEAD
             className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50  pb-5 pl-10 "
-=======
-            className=" btn text-2xl bg-clip-text text-transparent rounded-full outline  bg-gradient-to-r from-pink-500 to-violet-500  pt-5 pl-10"
->>>>>>> 4dd51faf7a551d160581413317a200655320825f
->>>>>>> Stashed changes
           >
             {accountAddress
               ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
@@ -90,15 +82,7 @@ function Home() {
               : "  start your shopping !"}
           </button>
         </p>
-<<<<<<< Updated upstream
-        <img  className ="rounded-lg " src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
-=======
-<<<<<<< HEAD
         <img className="pl-20" src={image} alt="" />
-=======
-        <img  className ="rounded-lg " src="https://images.unsplash.com/photo-1642543348745-03b1219733d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"></img>
->>>>>>> 4dd51faf7a551d160581413317a200655320825f
->>>>>>> Stashed changes
       </div>
       <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
         Build on ... " Superfluid"
