@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ethers } from "ethers";
 import image from "./image2.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Home() {
   const ctx = useContext(accContext);
   const accountAddress = ctx.dataState.acclogin.accountAddress;
@@ -28,11 +30,16 @@ function Home() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     ctx.dataState.addData(provider, signer, accounts[0]);
+  //   toast.success("login successfully... ",{
+  //     position: toast.POSITION.TOP_CENTER
+  // })
   };
 
-  return (
+  return (<>
+   
     <div className="grid justify-items-center   pt-20">
       {/* <Payment /> */}
+      {/* <ToastContainer/> */}
       {posts && (
         <p className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
           Total item's listed in our website :- {posts.length}
@@ -139,6 +146,7 @@ function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

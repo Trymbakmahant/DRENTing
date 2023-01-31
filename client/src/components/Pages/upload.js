@@ -2,6 +2,8 @@ import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { accContext } from "../context/accountContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Upload() {
   const ctx = useContext(accContext);
@@ -33,11 +35,14 @@ function Upload() {
       );
       navigate("/buyrent");
       console.log(data);
+      toast("you uploaded  this product successfully!...",{
+        position: toast.POSITION.TOP_CENTER
+    })
     } catch (e) {
       console.log(e);
     }
   };
-  return (
+  return (<>
     <div className="grid justify-items-center    border-4 pt-20 ">
       <div className="form-control w-full max-w-xs">
         <label className="label">
@@ -112,6 +117,8 @@ function Upload() {
         </button>
       </div>
     </div>
+    <ToastContainer/>
+    </>
   );
 }
 
