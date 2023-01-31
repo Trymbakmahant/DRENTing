@@ -241,11 +241,17 @@ const Wrapper = (props) => {
       .sendTransaction(transactionParameters)
       .then((transaction) => {
         console.log(" successful");
-        
+        toast("you have successfully bought the item !... ", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+  
       })
       .catch((e) => {
         console.log("failed! : please check the amount ");
-
+        toast("failed! : please check the amount!... ", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+  
         return;
       });
   };
