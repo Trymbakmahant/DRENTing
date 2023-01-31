@@ -6,6 +6,7 @@ import Home from "../Pages/home";
 import Buy from "../Pages/buyrent/buyrentt";
 import History from "../Pages/history";
 import ADs from "../Pages/advertisement";
+import Reward from "../Pages/reward";
 const Paths = () => {
   return (
     <Routes>
@@ -15,6 +16,7 @@ const Paths = () => {
       <Route exact path="/buy/:_id" element={<Buy />} />
       <Route exact path="/history" element={<History />} />
       <Route exact path="/ads" element={<ADs />} />
+      <Route exact path="/reward" element={<Reward />} />
     </Routes>
   );
 };

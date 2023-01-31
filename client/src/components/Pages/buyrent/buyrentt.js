@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
 import { Provider } from "@ethersproject/abstract-provider";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Buy = () => {
   const [post, setPost] = useState([]);
@@ -13,11 +13,10 @@ const Buy = () => {
   const [name, setName] = useState("");
   const [flowrate, setFlowrate] = useState("");
   const [loading, setLoading] = useState(false);
-  const[laodingg, setloadingg]=useState(false);
+  const [laodingg, setloadingg] = useState(false);
   const { _id } = useParams();
 
-  const[isloadingg ,setLoadingg ]= useState(false)
-
+  const [isloadingg, setLoadingg] = useState(false);
 
   const [isloading, setIsloading] = useState(false);
 
@@ -69,11 +68,15 @@ const Buy = () => {
       dataofhistory
     );
     console.log(data);
-    
+
     setLoading(false);
-    toast("you have rented this product successfully!...",{
-      position: toast.POSITION.TOP_CENTER
-  },{containerId: 'B'})
+    toast(
+      "you have rented this product successfully!...",
+      {
+        position: toast.POSITION.TOP_CENTER,
+      },
+      { containerId: "B" }
+    );
   }
 
   const handlestartChange = (e) => {
@@ -89,18 +92,20 @@ const Buy = () => {
     try {
       console.log(polygonAmount);
       await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
-     toast.success("you have successfully bought the item !... ",{
-      position: toast.POSITION.TOP_CENTER
-  }, {containerId: 'A'}
-  )
+      toast.success(
+        "you have successfully bought the item !... ",
+        {
+          position: toast.POSITION.TOP_CENTER,
+        },
+        { containerId: "A" }
+      );
 
-  setLoadingg(false);
-
+      setLoadingg(false);
     } catch (e) {
       console.log(e);
-      toast.error(" Transection does not completed  ",{
-        position: toast.POSITION.TOP_CENTER
-    })
+      toast.error(" Transection does not completed  ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
     const date = new Date(Date.now());
     const amount = post[0].buying;
@@ -122,14 +127,10 @@ const Buy = () => {
   //
   useEffect(() => {
     b();
-   
-    
-
   }, []);
 
   return (
     <>
-
       <div className="flex p-8 justify-center pt-20	">
         {post[0] && post[0]._id && (
           <div className="card card-side h-8/12	w-8/12 shadow-xl  ring ring-offset-4 glass">
@@ -149,15 +150,17 @@ const Buy = () => {
               <div className="font-mono text-xl">buy price: </div>
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying} wei</div>
-
-              <button
-                onClick={payment}
+              <a
+                htmlFor="my-modal-2"
                 className={`btn outline btn-current  ${loading && "loading"}`}
               >
                 {loading ? "Loading...." : "rent now  "}
-              </button>
+              </a>
+
               <button
-                className={`btn outline btn-current  ${isloadingg && "loading"}`}
+                className={`btn outline btn-current  ${
+                  isloadingg && "loading"
+                }`}
                 onClick={buy}
               >
                 {" "}
@@ -200,10 +203,9 @@ const Buy = () => {
             </div>
           </div>
         )}
-        
       </div>
-      <ToastContainer  enableMultiContainer containerId={'A'}/>
-        <ToastContainer  enableMultiContainer containerId={'B'}/>
+      <ToastContainer enableMultiContainer containerId={"A"} />
+      <ToastContainer enableMultiContainer containerId={"B"} />
     </>
   );
 };

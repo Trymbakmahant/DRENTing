@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { accContext } from "../context/accountContext";
 import classes from "../css/history.css";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function History() {
   const data = { adress: "" };
   const ctx = useContext(accContext);
@@ -23,22 +23,25 @@ function History() {
     setHistry(datais.data);
     console.log(histry);
   };
-  async function  deleteflow(renter) {
+  async function deleteflow(renter) {
     await ctx.dataState.deleteExistingFlow(renter);
-    toast.success("you have successfully bought the item !... ",{
-      position: toast.POSITION.TOP_CENTER
-  })
+    toast.success("you have successfully bought the item !... ", {
+      position: toast.POSITION.TOP_CENTER,
+    });
   }
   useEffect(() => {
     callfunction();
   }, [data.adress]);
   return (
     <>
-    <div>
-    <ToastContainer/>
-      <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4 ">
-        {ctx.dataState.role == "Merchant" &&
-          history.map((data) => (
+      <ToastContainer />
+
+      <div className=" ">
+        <div className="flex justify-center pb-10 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
+          Product which is sold by you
+        </div>
+        <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4">
+          {history.map((data) => (
             <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">
@@ -60,8 +63,13 @@ function History() {
               </div>
             </div>
           ))}
-        {ctx.dataState.role == "Buyer" &&
-          histry.map((data) => (
+        </div>
+        <div className="flex justify-center pb-10 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
+          Product which is purched by you
+        </div>
+        <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4">
+          {" "}
+          {histry.map((data) => (
             <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">
@@ -83,8 +91,8 @@ function History() {
               </div>
             </div>
           ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }

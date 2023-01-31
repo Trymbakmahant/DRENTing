@@ -93,17 +93,6 @@ function Navbar() {
                     style={{ marginRight: "20px" }}
                     exact
                     className="nav-link btn-ghost"
-                    to="/ads"
-                  >
-                    advertise
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    style={{ marginRight: "20px" }}
-                    exact
-                    className="nav-link btn-ghost"
                     to="/buyrent"
                   >
                     Rent/Buy
@@ -120,6 +109,16 @@ function Navbar() {
                     History
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    style={{ marginRight: "20px" }}
+                    exact
+                    className="nav-link btn-ghost"
+                    to="/reward"
+                  >
+                    Reward
+                  </Link>
+                </li>
                 <li tabIndex={0}>
                   <Link
                     style={{ marginRight: "20px" }}
@@ -127,7 +126,7 @@ function Navbar() {
                     className="nav-link btn-ghost"
                     to="/upload"
                   >
-                    Upload Video
+                    Upload Products
                   </Link>
                 </li>
               </ul>
