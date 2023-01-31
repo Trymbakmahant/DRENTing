@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { accContext } from "../context/accountContext";
 import classes from "../css/history.css";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function History() {
   const data = { adress: "" };
   const ctx = useContext(accContext);
@@ -15,14 +17,19 @@ function History() {
     setHistry(datais.data);
     console.log(histry);
   };
-  function deleteflow(renter) {
-    ctx.dataState.deleteExistingFlow(renter);
+  async function  deleteflow(renter) {
+    await ctx.dataState.deleteExistingFlow(renter);
+    toast.success("you have successfully bought the item !... ",{
+      position: toast.POSITION.TOP_CENTER
+  })
   }
   useEffect(() => {
     callfunction();
   }, [data.adress]);
-  return (
+  return (<>
+        <ToastContainer/>
     <div className="flex justify-center pt-10 ">
+ 
       {histry.map((data) => (
         <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">
           <div className="card-body">
@@ -43,6 +50,7 @@ function History() {
         </div>
       ))}
     </div>
+    </>
   );
 }
 
