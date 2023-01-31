@@ -4,8 +4,17 @@ const Products = require("../models/Product");
 
 router.route("/").post(async (req, res) => {
   try {
-    const { name, description, image, catogory, rental, buying, owner, index } =
-      req.body;
+    const {
+      name,
+      description,
+      image,
+      catogory,
+      rental,
+      buying,
+      owner,
+      index,
+      ads,
+    } = req.body;
     let imageId = image.split("/")[5];
     let imageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
 
@@ -18,6 +27,7 @@ router.route("/").post(async (req, res) => {
       buying,
       owner,
       index,
+      ads,
     });
 
     await product.save();

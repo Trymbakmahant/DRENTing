@@ -77,12 +77,7 @@ function Home() {
             exact
             className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50  pb-5 pl-10 "
           >
-            {accountAddress
-              ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
-                  37,
-                  42
-                )}`
-              : "  start your shopping !"}
+            start your shopping
           </button>
         </p>
         <img className="pl-20" src={image} alt="" />

@@ -14,10 +14,15 @@ const Buy = () => {
   const [flowrate, setFlowrate] = useState("");
   const [loading, setLoading] = useState(false);
   const { _id } = useParams();
+<<<<<<< HEAD
   const[getin ,setgetin ]= useState(false)
 
+=======
+  const [isloading, setIsloading] = useState(false);
+>>>>>>> a4b601c3fb070d27838c7013629b51cb390eb8ca
   const enddateInputRef = useRef(null);
   const [startdate, setStartDate] = useState("");
+  const [index, setIndex] = useState("");
   const [enddate, setEndDate] = useState("");
   const ctx = useContext(accContext);
   const startdateInputRef = useRef(null);
@@ -29,6 +34,7 @@ const Buy = () => {
       });
       setPost(data);
       setOwner(data[0].owner);
+      setIndex(data[0].index);
       setFlowrate(data[0].rental);
       setName(data[0].name);
       setpolygonAmount(data[0].buying);
@@ -41,6 +47,12 @@ const Buy = () => {
   const productname = name;
 
   async function payment() {
+    console.log(index);
+    await ctx.dataState.updateSubscription(
+      index,
+      ctx.dataState.acclogin.accountAddress,
+      1
+    );
     setLoading(true);
     await ctx.dataState.createNewFlow(owner, flowrate);
     const dataofhistory = {
@@ -52,7 +64,7 @@ const Buy = () => {
       owner,
     };
     const data = await axios.post(
-      "http://localhost:8081/api/history",
+      "http://localhost:8081/api/history/renter",
       dataofhistory
     );
     console.log(data);
@@ -72,6 +84,7 @@ const Buy = () => {
 
   //this section is  for the performing  buy operation
   async function buy() {
+    setLoading(true);
     try {
       console.log(polygonAmount);
       await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
@@ -85,6 +98,22 @@ const Buy = () => {
         position: toast.POSITION.TOP_CENTER
     })
     }
+    const date = new Date(Date.now());
+    const amount = post[0].buying;
+    const dataofhistory = {
+      amount,
+      user,
+      date,
+      productname,
+      owner,
+    };
+    const data = await axios.post(
+      "http://localhost:8081/api/history/buyer ",
+      dataofhistory
+    );
+    console.log(data);
+
+    setLoading(false);
   }
   //
   useEffect(() => {
@@ -117,14 +146,19 @@ const Buy = () => {
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying} wei</div>
 
-              <a href="#my-modal-2" className="btn btn-current outline">
+              <button
+                onClick={payment}
+                className={`btn outline btn-current  ${loading && "loading"}`}
+              >
                 {loading ? "Loading...." : "rent now  "}
-              </a>
-              <button className="btn btn-current outline " onClick={buy}>
-                {" "}
-                {loading ? "Loading...." : "buy nows "}
               </button>
-
+              <button
+                className={`btn outline btn-current  ${isloading && "loading"}`}
+                onClick={buy}
+              >
+                {" "}
+                {isloading ? "Loading...." : "buy nows "}
+              </button>
               <div className="modal " id="my-modal-2">
                 <div className="modal-box">
                   <div className="flex justify-between">
