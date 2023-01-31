@@ -14,12 +14,12 @@ const Buy = () => {
   const [flowrate, setFlowrate] = useState("");
   const [loading, setLoading] = useState(false);
   const { _id } = useParams();
-<<<<<<< HEAD
+
   const[getin ,setgetin ]= useState(false)
 
-=======
+
   const [isloading, setIsloading] = useState(false);
->>>>>>> a4b601c3fb070d27838c7013629b51cb390eb8ca
+
   const enddateInputRef = useRef(null);
   const [startdate, setStartDate] = useState("");
   const [index, setIndex] = useState("");
