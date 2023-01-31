@@ -13,11 +13,11 @@ function History() {
   data.adress = ctx.dataState.acclogin.accountAddress;
   const callfunction = async () => {
     const datais = await axios.post(
-      "http://localhost:8081/api/history/get/buyer",
+      "https://drenting.onrender.com/api/history/get/buyer",
       data
     );
     const dataofowner = await axios.post(
-      "http://localhost:8081/api/history/get/owner",
+      "https://drenting.onrender.com/api/history/get/owner",
       data
     );
     setHistory(dataofowner.data);

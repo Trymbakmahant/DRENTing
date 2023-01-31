@@ -25,7 +25,10 @@ function AD() {
       owner,
     };
     try {
-      const data = await axios.post("http://localhost:8081/api/ads", datais);
+      const data = await axios.post(
+        "https://drenting.onrender.com/api/ads",
+        datais
+      );
       navigate("/buyrent");
       console.log(data);
     } catch (e) {

@@ -33,7 +33,7 @@ function Upload() {
         ads,
       };
       const data = await axios.post(
-        "http://localhost:8081/api/postproduct",
+        "https://drenting.onrender.com/api/postproduct",
         datais
       );
       navigate("/buyrent");

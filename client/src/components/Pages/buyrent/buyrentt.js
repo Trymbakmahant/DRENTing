@@ -111,7 +111,7 @@ const Buy = () => {
       owner,
     };
     const data = await axios.post(
-      "http://localhost:8081/api/history/buyer ",
+      "https://drenting.onrender.com/api/history/buyer ",
       dataofhistory
     );
     console.log(data);
@@ -144,18 +144,6 @@ const Buy = () => {
               <div className="font-mono text-xl">buy price: </div>
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying} wei</div>
-
-
-              <a
-                onClick={() => {
-                  payment();
-                }}
-                htmlFor="my-modal-2"
-                className={`btn outline btn-current  ${loading && "loading"}`}
-              >
-                {loading ? "Loading...." : "rent now  "}
-              </a>
-
 
               <button
                 className={`btn outline btn-current  ${

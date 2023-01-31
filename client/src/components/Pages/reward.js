@@ -10,7 +10,7 @@ function Reward() {
   data.owner = accountAddress;
   const callfunction = async () => {
     const dataofowner = await axios.post(
-      "http://localhost:8081/api/productData/owner",
+      "https://drenting.onrender.com/api/productData/owner",
       data
     );
     console.log(dataofowner);
