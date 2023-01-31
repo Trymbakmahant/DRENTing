@@ -4,7 +4,7 @@ import { BigNumber } from "ethers";
 import { Framework } from "@superfluid-finance/sdk-core";
 export const accContext = createContext({});
 const Wrapper = (props) => {
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("none");
   const [acclogin, setAcclogin] = useState({
     provider: null,
     signer: null,
