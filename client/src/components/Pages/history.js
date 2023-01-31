@@ -33,7 +33,9 @@ function History() {
     callfunction();
   }, [data.adress]);
   return (
+    <>
     <div>
+    <ToastContainer/>
       <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4 ">
         {ctx.dataState.role == "Merchant" &&
           history.map((data) => (
