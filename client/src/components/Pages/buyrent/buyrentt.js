@@ -145,6 +145,18 @@ const Buy = () => {
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying} wei</div>
 
+
+              <a
+                onClick={() => {
+                  payment();
+                }}
+                htmlFor="my-modal-2"
+                className={`btn outline btn-current  ${loading && "loading"}`}
+              >
+                {loading ? "Loading...." : "rent now  "}
+              </a>
+
+
               <button
                 className={`btn outline btn-current  ${
                   isloadingg && "loading"

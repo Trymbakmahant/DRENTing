@@ -8,6 +8,8 @@ function History() {
   const ctx = useContext(accContext);
   const [histry, setHistry] = useState([]);
   const [history, setHistory] = useState([]);
+  console.log(histry);
+  console.log(history);
   data.adress = ctx.dataState.acclogin.accountAddress;
   const callfunction = async () => {
     const datais = await axios.post(
@@ -20,7 +22,6 @@ function History() {
     );
     setHistory(dataofowner.data);
     setHistry(datais.data);
-    console.log(histry);
   };
   async function deleteflow(renter) {
     await ctx.dataState.deleteExistingFlow(renter);
@@ -42,18 +43,10 @@ function History() {
                   {" "}
                   Productname : {data.productname}
                 </h2>
-                <p> Flowreate : {data.flowrate}</p>
+                {data.flowrate && <p> Flowreate : {data.flowrate}</p>}
                 <p> user : {data.user}</p>
-                <p className="">start date {data.startdate}</p>
-                <p className="">end date {data.enddate}</p>
-                <div className="card-actions justify-end">
-                  <button
-                    className="btn btn-current "
-                    onClick={deleteflow(data.owner)}
-                  >
-                    cancel
-                  </button>
-                </div>
+                <p className=""> date : {data.date}</p>
+                <div className="card-actions justify-end"></div>
               </div>
             </div>
           ))}
@@ -72,12 +65,14 @@ function History() {
                 </h2>
                 <p> Flowreate : {data.flowrate}</p>
                 <p> user : {data.user}</p>
-                <p className="">start date {data.startdate}</p>
-                <p className="">end date {data.enddate}</p>
+
+                {data.date && <p className=""> date {data.date}</p>}
                 <div className="card-actions justify-end">
                   <button
                     className="btn btn-current "
-                    onClick={deleteflow(data.owner)}
+                    onClick={() => {
+                      deleteflow(data.owner);
+                    }}
                   >
                     cancel
                   </button>

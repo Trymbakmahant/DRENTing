@@ -15,6 +15,7 @@ router.route("/").post(async (req, res) => {
       index,
       ads,
     } = req.body;
+
     let imageId = image.split("/")[5];
     let imageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
 

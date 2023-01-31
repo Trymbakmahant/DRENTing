@@ -4,7 +4,7 @@ import { accContext } from "../context/accountContext";
 function Reward() {
   const ctx = useContext(accContext);
   const [history, setHistory] = useState([]);
-  const amount = useRef();
+  const amount = useRef("");
   const accountAddress = ctx.dataState.acclogin.accountAddress;
   const data = { owner: "" };
   data.owner = accountAddress;
@@ -18,13 +18,13 @@ function Reward() {
   };
 
   async function giveReward(index) {
-    console.log(index, amount.current.value);
-    try {
-      await ctx.dataState.distributeFunds(index, amount);
-      alert("hurre");
-    } catch (e) {
-      console.log(e);
-    }
+    console.log(amount.current);
+    // try {
+    //   await ctx.dataState.distributeFunds(index, amount);
+    //   alert("hurre");
+    // } catch (e) {
+    //   console.log(e);
+    // }
   }
 
   useEffect(() => {

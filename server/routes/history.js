@@ -51,7 +51,7 @@ router.route("/get/buyer").post(async (req, res) => {
     const adress = req.body.adress;
 
     const Result = await History.find({ user: { $eq: adress } });
-
+    console.log(Result);
     res.send(Result);
   } catch (err) {
     console.log(err);
@@ -64,7 +64,7 @@ router.route("/get/owner").post(async (req, res) => {
     const adress = req.body.adress;
 
     const Result = await History.find({ owner: { $eq: adress } });
-
+    console.log(Result);
     res.send(Result);
   } catch (err) {
     console.log(err);
