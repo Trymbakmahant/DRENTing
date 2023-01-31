@@ -90,16 +90,16 @@ const Buy = () => {
       console.log(polygonAmount);
       await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
 
-      toast("you have successfully bought the item !... ", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      // toast("you have successfully bought the item !... ", {
+      //   position: toast.POSITION.TOP_CENTER,
+      // });
 
       setLoadingg(false);
     } catch (e) {
       console.log(e);
-      toast.error(" Transection does not completed  ", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      // toast.error(" Transection does not completed  ", {
+      //   position: toast.POSITION.TOP_CENTER,
+      // });
     }
     const date = new Date(Date.now());
     const amount = post[0].buying;
@@ -144,12 +144,6 @@ const Buy = () => {
               <div className="font-mono text-xl">buy price: </div>
               {/* <button className="btn  ">Buy Now</button> */}
               <div> {post[0].buying} wei</div>
-              <a
-                htmlFor="my-modal-2"
-                className={`btn outline btn-current  ${loading && "loading"}`}
-              >
-                {loading ? "Loading...." : "rent now  "}
-              </a>
 
               <button
                 className={`btn outline btn-current  ${
@@ -158,9 +152,20 @@ const Buy = () => {
                 onClick={buy}
               >
                 {" "}
-                {isloadingg ? "Loading...." : "buy nows "}
+                {isloadingg ? "Loading...." : "buy now "}
               </button>
-              <div className="modal " id="my-modal-2">
+
+              <label
+                htmlFor="my-modal-6"
+                className={`btn outline btn-current  ${loading && "loading"}`}
+              >
+                {" "}
+                {loading ? "Loading...." : "rent now  "}
+              </label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+              <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                   <div className="flex justify-between">
                     <div>
@@ -188,9 +193,13 @@ const Buy = () => {
                     total money you have to pay for this ...
                   </p>
                   <div className="modal-action">
-                    <a href="#" className="btn" onClick={payment}>
-                      make payment
-                    </a>
+                    <label
+                      htmlFor="my-modal-6"
+                      className="btn"
+                      onClick={payment}
+                    >
+                      make payment !
+                    </label>
                   </div>
                 </div>
               </div>
