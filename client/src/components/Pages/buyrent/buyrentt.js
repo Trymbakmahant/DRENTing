@@ -13,9 +13,10 @@ const Buy = () => {
   const [name, setName] = useState("");
   const [flowrate, setFlowrate] = useState("");
   const [loading, setLoading] = useState(false);
+  const[laodingg, setloadingg]=useState(false);
   const { _id } = useParams();
 
-  const[getin ,setgetin ]= useState(false)
+  const[isloadingg ,setLoadingg ]= useState(false)
 
 
   const [isloading, setIsloading] = useState(false);
@@ -84,13 +85,16 @@ const Buy = () => {
 
   //this section is  for the performing  buy operation
   async function buy() {
-    setLoading(true);
+    setLoadingg(true);
     try {
       console.log(polygonAmount);
       await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
      toast.success("you have successfully bought the item !... ",{
       position: toast.POSITION.TOP_CENTER
-  }, {containerId: 'A'})
+  }, {containerId: 'A'}
+  )
+
+  setLoadingg(false);
 
     } catch (e) {
       console.log(e);
@@ -119,7 +123,7 @@ const Buy = () => {
   useEffect(() => {
     b();
    
-    setgetin(true)
+    
 
   }, []);
 
@@ -153,11 +157,11 @@ const Buy = () => {
                 {loading ? "Loading...." : "rent now  "}
               </button>
               <button
-                className={`btn outline btn-current  ${isloading && "loading"}`}
+                className={`btn outline btn-current  ${isloadingg && "loading"}`}
                 onClick={buy}
               >
                 {" "}
-                {isloading ? "Loading...." : "buy nows "}
+                {isloadingg ? "Loading...." : "buy nows "}
               </button>
               <div className="modal " id="my-modal-2">
                 <div className="modal-box">
@@ -196,9 +200,10 @@ const Buy = () => {
             </div>
           </div>
         )}
-        <ToastContainer  enableMultiContainer containerId={'A'}/>
-        <ToastContainer  enableMultiContainer containerId={'B'}/>
+        
       </div>
+      <ToastContainer  enableMultiContainer containerId={'A'}/>
+        <ToastContainer  enableMultiContainer containerId={'B'}/>
     </>
   );
 };
