@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
-const Product = new mongoose.Schema({
+const ads = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   imageUrl: { type: String, required: true },
@@ -8,8 +8,7 @@ const Product = new mongoose.Schema({
   rental: { type: String, required: true },
   buying: { type: String, required: true },
   owner: { type: String, required: true },
-  index: { type: String, required: true },
 });
 
-const Products = mongoose.model("Products", Product);
-module.exports = Products;
+const Ads = mongoose.model("Ads", ads);
+module.exports = Ads;

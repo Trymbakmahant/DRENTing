@@ -26,46 +26,24 @@ function Navbar() {
           className="btn btn-ghost normal-case text-xl"
           to="/"
         >
-        
-  
-
           DRENTing
         </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link
-              style={{ marginRight: "20px" }}
-              exact
-              className="nav-link btn-ghost"
-              to="/buyrent"
-            >
-              Rent/Buy
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ marginRight: "20px" }}
-              exact
-              className="nav-link btn-ghost"
-              to="/history"
-            >
-              History
-            </Link>
-          </li>
-
+          {accountAddress && (
+            <li>
+              <Link
+                style={{ marginRight: "20px" }}
+                exact
+                className="nav-link btn-ghost"
+                to="/buyrent"
+              >
+                Rent/Buy
+              </Link>
+            </li>
+          )}
           <li tabIndex={0}>
-            <Link
-              style={{ marginRight: "20px" }}
-              exact
-              className="nav-link btn-ghost"
-              to="/upload"
-            >
-              Upload Video
-            </Link>
-          </li>
-          <li>
             <a>
               <button
                 onClick={connectFormHandler}
@@ -81,6 +59,40 @@ function Navbar() {
                   : "connect"}
               </button>
             </a>
+            {accountAddress && (
+              <ul className="p-2 bg-base-100">
+                <li>
+                  <Link
+                    style={{ marginRight: "20px" }}
+                    exact
+                    className="nav-link btn-ghost"
+                    to="/ads"
+                  >
+                    advertise
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    style={{ marginRight: "20px" }}
+                    exact
+                    className="nav-link btn-ghost"
+                    to="/history"
+                  >
+                    History
+                  </Link>
+                </li>
+                <li tabIndex={0}>
+                  <Link
+                    style={{ marginRight: "20px" }}
+                    exact
+                    className="nav-link btn-ghost"
+                    to="/upload"
+                  >
+                    Upload Video
+                  </Link>
+                </li>
+              </ul>
+            )}
           </li>
         </ul>
       </div>

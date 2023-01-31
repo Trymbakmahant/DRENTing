@@ -1,15 +1,15 @@
 const router = require("express").Router();
 
-const Products = require("../models/Product");
+const Ads = require("../models/Ads");
 
 router.route("/").post(async (req, res) => {
   try {
-    const { name, description, image, catogory, rental, buying, owner, index } =
+    const { name, description, image, catogory, rental, buying, owner } =
       req.body;
     let imageId = image.split("/")[5];
     let imageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
 
-    const product = new Products({
+    const product = new Ads({
       name,
       description,
       imageUrl,
@@ -17,7 +17,6 @@ router.route("/").post(async (req, res) => {
       rental,
       buying,
       owner,
-      index,
     });
 
     await product.save();

@@ -5,7 +5,7 @@ import Upload from "../Pages/upload";
 import Home from "../Pages/home";
 import Buy from "../Pages/buyrent/buyrentt";
 import History from "../Pages/history";
-
+import ADs from "../Pages/advertisement";
 const Paths = () => {
   return (
     <Routes>
@@ -14,6 +14,7 @@ const Paths = () => {
       <Route exact path="/buyrent" element={<Buyrentcard />} />
       <Route exact path="/buy/:_id" element={<Buy />} />
       <Route exact path="/history" element={<History />} />
+      <Route exact path="/ads" element={<ADs />} />
     </Routes>
   );
 };

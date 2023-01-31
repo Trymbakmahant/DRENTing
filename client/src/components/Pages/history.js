@@ -7,7 +7,6 @@ function History() {
   const ctx = useContext(accContext);
   const [histry, setHistry] = useState([]);
   data.adress = ctx.dataState.acclogin.accountAddress;
-  console.log(data);
   const callfunction = async () => {
     const datais = await axios.post(
       "http://localhost:8081/api/history/get",

@@ -4,6 +4,7 @@ import { BigNumber } from "ethers";
 import { Framework } from "@superfluid-finance/sdk-core";
 export const accContext = createContext({});
 const Wrapper = (props) => {
+  const [role, setRole] = useState("");
   const [acclogin, setAcclogin] = useState({
     provider: null,
     signer: null,
@@ -83,6 +84,140 @@ const Wrapper = (props) => {
     }
   }
 
+  /// index createation
+  async function createIndex() {
+    const id = Math.floor(Math.random() * 1000000000);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    const sf = await Framework.create({
+      chainId: 80001,
+      provider: provider,
+    });
+
+    const daix = await sf.loadSuperToken("fDAIx");
+
+    console.log(daix);
+
+    try {
+      const createIndexOperation = sf.idaV1.createIndex({
+        indexId: id,
+        superToken: "0x96B82B65ACF7072eFEb00502F45757F254c2a0D4",
+        // userData?: string
+      });
+
+      console.log(createIndexOperation);
+      console.log(
+        `Congrats - you've just created a new Index!
+       Network: Goerli
+       Super Token: DAIx
+       Index ID: ${id}
+    `
+      );
+
+      const result = await createIndexOperation.exec(signer);
+      console.log(result);
+      return id;
+    } catch (error) {
+      console.log(
+        "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+      );
+      console.error(error);
+    }
+  }
+
+  // this is for the distribution of reward
+  async function distributeFunds(id, amount) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    const sf = await Framework.create({
+      chainId: 80001,
+      provider: provider,
+    });
+
+    try {
+      const distributeOperation = sf.idaV1.distribute({
+        indexId: id,
+        amount: amount,
+        superToken: "0x96B82B65ACF7072eFEb00502F45757F254c2a0D4",
+        // userData?: string
+      });
+
+      console.log("Distributing...");
+
+      await distributeOperation.exec(signer);
+
+      console.log(
+        `Congrats - you've just distributed to an Index!
+         Network: Goerli
+         Super Token: DAIx
+         Index ID: ${id}
+         Amount: ${amount}         
+      `
+      );
+
+      console.log(
+        `Congrats - you've just distributed to your index!
+    `
+      );
+    } catch (error) {
+      console.log(
+        "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+      );
+      console.error(error);
+    }
+  }
+
+  // this is for adding suscriber to   product
+  async function updateSubscription(id, address, shares) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    const sf = await Framework.create({
+      chainId: 80001,
+      provider: provider,
+    });
+
+    try {
+      const updateSubscriptionOperation = sf.idaV1.updateSubscriptionUnits({
+        indexId: id,
+        subscriber: address,
+        units: shares,
+        superToken: "0x96B82B65ACF7072eFEb00502F45757F254c2a0D4",
+        // userData?: string
+      });
+
+      console.log("Updating your Index...");
+
+      await updateSubscriptionOperation.exec(signer);
+
+      console.log(
+        `Congrats - you've just updated an Index!
+         Network: Goerli
+         Super Token: DAIx
+         Index ID: ${id}
+         Subscriber: ${address}
+         Units: ${shares} units
+         
+      `
+      );
+
+      console.log(
+        `Congrats - you've just updated your index!
+    `
+      );
+    } catch (error) {
+      console.log(
+        "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+      );
+      console.error(error);
+    }
+  }
+
   //this is for buying
 
   const requestPolygonTransaction = async (owner, polygonAmount) => {
@@ -119,6 +254,11 @@ const Wrapper = (props) => {
     setPost,
     requestPolygonTransaction,
     deleteExistingFlow,
+    createIndex,
+    distributeFunds,
+    updateSubscription,
+    role,
+    setRole,
   };
 
   console.log(acclogin);

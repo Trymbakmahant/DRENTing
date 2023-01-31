@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { accContext } from "../context/accountContext";
 
-function Upload() {
+function AD() {
   const ctx = useContext(accContext);
   const navigate = useNavigate();
   const name = useRef();
@@ -15,7 +15,8 @@ function Upload() {
   const owner = ctx.dataState.acclogin.accountAddress;
 
   const submitter = async () => {
-    const index = ctx.dataState.createIndex();
+    const id = await ctx.dataState.createIndex();
+    console.log(id);
     const datais = {
       name: name.current.value,
       description: description.current.value,
@@ -24,13 +25,10 @@ function Upload() {
       rental: rental.current.value,
       buying: buying.current.value,
       owner,
-      index,
+      id,
     };
     try {
-      const data = await axios.post(
-        "http://localhost:8081/api/postproduct",
-        datais
-      );
+      const data = await axios.post("http://localhost:8081/api/ads", datais);
       navigate("/buyrent");
       console.log(data);
     } catch (e) {
@@ -115,6 +113,6 @@ function Upload() {
   );
 }
 
-export default Upload;
+export default AD;
 
 //buing rate renting rate  product description product image  product name product catogery

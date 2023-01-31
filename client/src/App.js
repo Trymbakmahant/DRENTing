@@ -6,10 +6,8 @@ function App() {
   return (
     <div className=" ">
       <Navbar />
-     
-      <Path />
 
-    
+      <Path />
     </div>
   );
 }

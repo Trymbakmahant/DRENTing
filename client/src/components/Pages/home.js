@@ -11,11 +11,7 @@ function Home() {
   const navigate = useNavigate();
   const [posts, setTotalposts] = useState([]);
   const [direct, setDirect] = useState(false);
-  useEffect(() => {
-    if (ctx.dataState.acclogin.accountAddress) {
-      navigate("/buyrent");
-    }
-  }, [ctx.dataState.acclogin.accountAddress]);
+
   const totalposts = async () => {
     const { data } = await axios.post(
       "http://localhost:8081/api/productData/all" //https://drenting.onrender.com
