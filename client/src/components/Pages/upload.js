@@ -13,20 +13,22 @@ function Upload() {
   const rental = useRef();
   const buying = useRef();
   const owner = ctx.dataState.acclogin.accountAddress;
-
+  console.log(ctx.dataState.role);
+  const ads = true;
   const submitter = async () => {
-    const index = ctx.dataState.createIndex();
-    const datais = {
-      name: name.current.value,
-      description: description.current.value,
-      image: image.current.value,
-      catogory: catogory.current.value,
-      rental: rental.current.value,
-      buying: buying.current.value,
-      owner,
-      index,
-    };
     try {
+      const index = await ctx.dataState.createIndex();
+      const datais = {
+        name: name.current.value,
+        description: description.current.value,
+        image: image.current.value,
+        catogory: catogory.current.value,
+        rental: rental.current.value,
+        buying: buying.current.value,
+        owner,
+        index,
+        ads,
+      };
       const data = await axios.post(
         "http://localhost:8081/api/postproduct",
         datais

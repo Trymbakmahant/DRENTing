@@ -15,8 +15,6 @@ function AD() {
   const owner = ctx.dataState.acclogin.accountAddress;
 
   const submitter = async () => {
-    const id = await ctx.dataState.createIndex();
-    console.log(id);
     const datais = {
       name: name.current.value,
       description: description.current.value,
@@ -25,7 +23,6 @@ function AD() {
       rental: rental.current.value,
       buying: buying.current.value,
       owner,
-      id,
     };
     try {
       const data = await axios.post("http://localhost:8081/api/ads", datais);

@@ -9,6 +9,7 @@ const Product = new mongoose.Schema({
   buying: { type: String, required: true },
   owner: { type: String, required: true },
   index: { type: String, required: true },
+  ads: { type: Boolean, required: true },
 });
 
 const Products = mongoose.model("Products", Product);
