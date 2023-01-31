@@ -70,13 +70,10 @@ const Buy = () => {
     console.log(data);
 
     setLoading(false);
-    toast(
-      "you have rented this product successfully!...",
-      {
-        position: toast.POSITION.TOP_CENTER,
-      },
-      { containerId: "B" }
-    );
+
+    toast("you have rented this product successfully!...", {
+      position: toast.POSITION.TOP_CENTER,
+    });
   }
 
   const handlestartChange = (e) => {
@@ -92,13 +89,10 @@ const Buy = () => {
     try {
       console.log(polygonAmount);
       await ctx.dataState.requestPolygonTransaction(owner, polygonAmount);
-      toast.success(
-        "you have successfully bought the item !... ",
-        {
-          position: toast.POSITION.TOP_CENTER,
-        },
-        { containerId: "A" }
-      );
+
+      toast("you have successfully bought the item !... ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
 
       setLoadingg(false);
     } catch (e) {
@@ -204,8 +198,8 @@ const Buy = () => {
           </div>
         )}
       </div>
-      <ToastContainer enableMultiContainer containerId={"A"} />
-      <ToastContainer enableMultiContainer containerId={"B"} />
+
+      <ToastContainer />
     </>
   );
 };

@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 import { ethers } from "ethers";
 import { BigNumber } from "ethers";
 import { Framework } from "@superfluid-finance/sdk-core";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const accContext = createContext({});
 const Wrapper = (props) => {
   const [role, setRole] = useState("none");
@@ -43,6 +45,7 @@ const Wrapper = (props) => {
 
       const result = await createFlowOperation.exec(signer);
       console.log(result);
+
     } catch (error) {
       console.log(
         "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
@@ -238,6 +241,7 @@ const Wrapper = (props) => {
       .sendTransaction(transactionParameters)
       .then((transaction) => {
         console.log(" successful");
+        
       })
       .catch((e) => {
         console.log("failed! : please check the amount ");
