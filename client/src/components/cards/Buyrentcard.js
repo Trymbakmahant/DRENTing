@@ -12,7 +12,7 @@ const Buyrentcard = () => {
   const a = async () => {
     try {
       const { data } = await axios.post(
-        `http://localhost:8081/api/productData/all`
+        `https://drenting.onrender.com/api/productData/all`
       );
       setPost(data);
       ctx.dataState.setPost(data);
