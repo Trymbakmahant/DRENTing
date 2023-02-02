@@ -76,8 +76,8 @@ function Home() {
               onClick={connectFormHandler}
               // style={{ marginRight: "20px", marginLeft: "20px" }}
               exact
-              className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50   "
-            >
+              className=" btn   text-2xl bg-clip-text text-transparent  bg-gradient-to-r from-blue-500 to-lime-50 ring-[3px] ring-blue-300 hover:ring-blue-500  "
+            > 
               start your shopping
             </button>
             </div>
