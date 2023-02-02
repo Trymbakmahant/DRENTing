@@ -71,14 +71,16 @@ function Home() {
               status or geographic location.
             </div>
             <br />
+          <div className="ml-40">
             <button
               onClick={connectFormHandler}
-              style={{ marginRight: "20px", marginLeft: "20px" }}
+              // style={{ marginRight: "20px", marginLeft: "20px" }}
               exact
-              className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50  pb-5 pl-10 "
+              className=" btn  btn-outline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50   "
             >
               start your shopping
             </button>
+            </div>
           </p>
           <img className="pl-20" src={image} alt="" />
         </div>
