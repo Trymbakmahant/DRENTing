@@ -82,7 +82,9 @@ function Home() {
             </button>
             </div>
           </p>
-          <img className="pl-20" src={image} alt="" />
+        
+          <img className=" pl-20 mr-10" src={image} alt="" />
+          
         </div>
         <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
           Build on ... " Superfluid"
