@@ -29,7 +29,7 @@ const Buy = () => {
   const [polygonAmount, setpolygonAmount] = useState("");
   const b = async () => {
     try {
-      const { data } = await axios.post("https://drenting.onrender.com/api/Checkid", {
+      const { data } = await axios.post("http://localhost:8081/api/Checkid", {
         _id,
       });
       setPost(data);
@@ -64,7 +64,7 @@ const Buy = () => {
       owner,
     };
     const data = await axios.post(
-      "https://drenting.onrender.com/api/history/renter",
+      "http://localhost:8081/api/history/renter",
       dataofhistory
     );
     console.log(data);
@@ -111,7 +111,7 @@ const Buy = () => {
       owner,
     };
     const data = await axios.post(
-      "https://drenting.onrender.com/api/history/buyer ",
+      "http://localhost:8081/api/history/buyer ",
       dataofhistory
     );
     console.log(data);

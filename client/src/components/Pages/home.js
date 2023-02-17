@@ -16,7 +16,7 @@ function Home() {
 
   const totalposts = async () => {
     const { data } = await axios.post(
-      "https://drenting.onrender.com/api/productData/all" //https://drenting.onrender.com
+      "http://localhost:8081/api/productData/all" //http://localhost:8081
     );
     setTotalposts(data);
   };
@@ -55,7 +55,6 @@ function Home() {
             </div>
             <br />
             <div className="pb-10 text-justify">
-             
               {" "}
               Introducing, Decentralized E-commerce using Web3 technology. With
               Web3, we can now create a decentralized network where transactions
@@ -72,20 +71,18 @@ function Home() {
               status or geographic location.
             </div>
             <br />
-          <div className="ml-40">
-            <button
-              onClick={connectFormHandler}
-              // style={{ marginRight: "20px", marginLeft: "20px" }}
-              exact
-              className=" btn   text-2xl bg-clip-text text-transparent  bg-gradient-to-r from-blue-500 to-lime-50 ring-[3px] ring-blue-300 hover:ring-blue-500  "
-            > 
-              start your shopping
-            </button>
+            <div className="ml-40">
+              <button
+                onClick={connectFormHandler}
+                // style={{ marginRight: "20px", marginLeft: "20px" }}
+                exact
+                className=" btn   text-2xl bg-clip-text text-transparent  bg-gradient-to-r from-blue-500 to-lime-50 ring-[3px] ring-blue-300 hover:ring-blue-500  "
+              >
+                start your shopping
+              </button>
             </div>
           </p>
-        
           <img className=" pl-20 mr-20" src={image} alt="" />
-          
         </div>
         <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
           Build on ... " Superfluid"
