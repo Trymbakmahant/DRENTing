@@ -1,10 +1,11 @@
-import Payment from "./Payment";
+import Payment from "../Payment";
 import { useContext, useEffect, useState } from "react";
-import { accContext } from "../context/accountContext";
+import { accContext } from "../../context/accountContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ethers } from "ethers";
-import image from "./image2.png";
+import "./home.css";
+import image from "../../image/image2.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Home() {
@@ -84,7 +85,8 @@ function Home() {
           </p>
           <img className=" pl-20 mr-20" src={image} alt="" />
         </div>
-        <p className="text-6xl   bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
+
+        <p className="text-6xl  bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	pl-40">
           Build on ... " Superfluid"
         </p>
 

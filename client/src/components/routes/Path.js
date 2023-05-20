@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom";
 
 import Buyrentcard from "../cards/Buyrentcard";
 import Upload from "../Pages/upload";
-import Home from "../Pages/home";
+import Home from "../Pages/Home/home";
 import Buy from "../Pages/buyrent/buyrentt";
-import History from "../Pages/history";
+import History from "../Pages/History/history";
 import ADs from "../Pages/advertisement";
 import Reward from "../Pages/reward";
 const Paths = () => {

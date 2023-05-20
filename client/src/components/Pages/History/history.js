@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-import { accContext } from "../context/accountContext";
-import classes from "../css/history.css";
+import { accContext } from "../../context/accountContext";
+import classes from "../../css/history.css";
 
 function History() {
   const data = { adress: "" };

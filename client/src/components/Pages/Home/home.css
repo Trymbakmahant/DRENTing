@@ -1,0 +1,41 @@
+.headingtext {
+  --width: 300px;
+  --timing: 1.5s;
+  -webkit-animation: var(--timing) linear dance6123 infinite;
+  animation: var(--timing) linear dance6123 infinite;
+  background: #fafad2;
+  background-image: linear-gradient(
+    45deg,
+    #b18e33 16.65%,
+    #b18e33 0,
+    #eedb7c 33.3%,
+    #eedb7c 0,
+    #b18e33 49.95%,
+    #b18e33 0,
+    #b18e33 66.6%,
+    #b18e33 0,
+    #b18e33 83.25%,
+    #b18e33 0,
+    #b18e33 100%,
+    #fa5252 0
+  );
+  display: flex;
+  justify-content: center;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 34px;
+  font-weight: 700;
+  height: 64px;
+  -webkit-transform: scale(1.1) translateY(-1px);
+  transform: scale(1.1) translateY(-1px);
+  transition: all 0.2s;
+  width: var(--width);
+}
+
+@keyframes dance6123 {
+  to {
+    background-position: var(--width);
+  }
+}

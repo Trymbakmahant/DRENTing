@@ -3,6 +3,7 @@ import { accContext } from "../../context/accountContext";
 import { useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
+import "./buyrent.css";
 import { Provider } from "@ethersproject/abstract-provider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -128,12 +129,9 @@ const Buy = () => {
       <div className="flex p-8 justify-center pt-20	">
         {post[0] && post[0]._id && (
           <div className="card card-side h-8/12	w-8/12 shadow-xl  ring ring-offset-4 glass">
-            <figure>
-              <img
-                className="	 w-[1000px] h-[700px] scale-75	 "
-                src={post[0].imageUrl}
-              />
-            </figure>
+            <div className="imageofbuy">
+              <img src={post[0].imageUrl} />
+            </div>
             <div className="card-body">
               <h2 className="card-title">{post[0].name}</h2>
               {/* <h2>DESCRIPTION!</h2> */}
