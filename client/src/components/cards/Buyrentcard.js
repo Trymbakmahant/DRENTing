@@ -56,7 +56,7 @@ const Buyrentcard = () => {
                           display: "flex",
                           justifyContent: "space-between",
                           flexDirection: "row",
-                          width: "20%",
+                          width: "176px",
                         }}
                       >
                         <div

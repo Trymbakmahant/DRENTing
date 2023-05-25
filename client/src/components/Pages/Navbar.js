@@ -43,25 +43,30 @@ function Navbar() {
           <li tabIndex={0}>
             {accountAddress !== null && ctx.dataState.role == "none" && (
               <>
-                <button
-                  onClick={() => {
-                    ctx.dataState.setRole("Merchant");
-                    console.log("running");
-                  }}
-                  className=" btn btn-outline"
-                >
-                  Become Merchant
-                </button>
-
-                <button
-                  onClick={() => {
-                    console.log("running");
-                    ctx.dataState.setRole("Buyer");
-                  }}
-                  className=" btn btn-outline"
-                >
-                  Become Buyer
-                </button>
+                <li>
+                  {" "}
+                  <button
+                    onClick={() => {
+                      ctx.dataState.setRole("Merchant");
+                      console.log("running");
+                    }}
+                    className=" btn btn-outline"
+                  >
+                    Become Merchant
+                  </button>
+                </li>
+                <li>
+                  {" "}
+                  <button
+                    onClick={() => {
+                      console.log("running");
+                      ctx.dataState.setRole("Buyer");
+                    }}
+                    className=" btn btn-outline"
+                  >
+                    Become Buyer
+                  </button>
+                </li>
               </>
             )}
             {accountAddress !== null && ctx.dataState.role == "Merchant" && (
