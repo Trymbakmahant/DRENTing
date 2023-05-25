@@ -35,7 +35,7 @@ function History() {
         <div className="flex justify-center pb-10 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
           Product which is sold by you
         </div>
-        <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4">
+        <div className="grid col-span-2  place-content-center  divide-y  gap-4">
           {history.map((data) => (
             <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">
               <div className="card-body">
@@ -54,7 +54,7 @@ function History() {
         <div className="flex justify-center pb-10 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
           Product which is purched by you
         </div>
-        <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4">
+        <div className="grid col-span-2  place-content-center  divide-y  gap-4">
           {" "}
           {histry.map((data) => (
             <div className=" card w-96 bg-base-100  ring-2 ring-white shadow-xl">

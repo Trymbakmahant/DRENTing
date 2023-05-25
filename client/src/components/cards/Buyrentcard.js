@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import "./byrent.css";
+import PeerPay from "peerpaysdk";
 import { accContext } from "../context/accountContext";
 
 const Buyrentcard = () => {
@@ -14,6 +15,7 @@ const Buyrentcard = () => {
       const { data } = await axios.post(
         `http://localhost:8081/api/productData/all`
       );
+      console.log(data);
       setPost(data);
       ctx.dataState.setPost(data);
     } catch (err) {
@@ -49,14 +51,37 @@ const Buyrentcard = () => {
                     </div>
                     <p>About this Item : {post.description}</p>
                     <div className="card-actions justify-end">
-                      {/* <button className="btn ">Rent Now</button> */}
-                      <div className="font-mono text-xl">
-                        rent-price/month:{" "}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          flexDirection: "row",
+                          width: "20%",
+                        }}
+                      >
+                        <div
+                          style={{
+                            marginTop: "10px",
+                          }}
+                        >
+                          Rent NOW :
+                        </div>
+                        <div>
+                          <PeerPay
+                            price={post.buying}
+                            limit="10"
+                            api="https://api-staging.superfluid.dev"
+                            image={post.imageUrl}
+                            name={post.name}
+                            detail={post.description}
+                            maxtime="6"
+                            minquantity="PeerPay"
+                            labelname="PeerPay"
+                            backgroundColor="#ffffff"
+                            color="#fff"
+                          />
+                        </div>
                       </div>
-                      <div> {post.rental}</div>
-                      <div className="font-mono text-xl">buy-price: </div>
-                      {/* <button className="btn  ">Buy Now</button> */}
-                      <div> {post.buying}</div>
                     </div>
                   </Link>
                 </div>

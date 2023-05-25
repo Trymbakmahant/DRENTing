@@ -35,11 +35,11 @@ function Reward() {
       <div className="flex justify-center pb-10 text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-lime-50 pt-20	">
         list of all products
       </div>
-      <div className="grid col-span-2 lg:grid-cols-3 place-content-center  divide-y  gap-4">
+      <div className="grid col-span-2  place-content-center  divide-y  gap-4">
         {" "}
         {history.map((data) => (
           <div className=" p-8 	">
-            <div className="card card-compact w-96 h-96 ring-2 ring-current glass ">
+            <div className="card card-compact w-98 h-98 ring-2 ring-current glass ">
               <figure>
                 <a href={data.imageUrl}>
                   <img h src={data.imageUrl} onClick={data.imageUrl} />
@@ -58,7 +58,7 @@ function Reward() {
                   {/* <button className="btn  ">Buy Now</button> */}
                   <div> {data.buying}</div>
                 </div>
-                <div>
+                <div className="flex gap-6">
                   <input
                     type="text"
                     ref={amount}
@@ -67,7 +67,7 @@ function Reward() {
                   />
 
                   <button
-                    className="btn btn-outline pl-3"
+                    className="btn btn-outline pl-3 pt-2"
                     onClick={() => {
                       giveReward(data.index);
                     }}
