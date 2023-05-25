@@ -41,53 +41,31 @@ function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li tabIndex={0}>
-            <a>
-              <button
-                onClick={connectFormHandler}
-                style={{ marginRight: "20px", marginLeft: "20px" }}
-                exact
-                className=" btn btn-outline"
-              >
-                {accountAddress
-                  ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
-                      37,
-                      42
-                    )}`
-                  : "connect"}
-              </button>
-            </a>
             {accountAddress !== null && ctx.dataState.role == "none" && (
-              <ul className="p-2 bg-base-100">
-                <li>
-                  <Link
-                    style={{ marginRight: "20px" }}
-                    exact
-                    className="nav-link btn-ghost"
-                    onClick={() => {
-                      ctx.dataState.setRole("Merchant");
-                      console.log("running");
-                    }}
-                  >
-                    Become Merchant
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    style={{ marginRight: "20px" }}
-                    exact
-                    className="nav-link btn-ghost"
-                    onClick={() => {
-                      console.log("running");
-                      ctx.dataState.setRole("Buyer");
-                    }}
-                  >
-                    Become buyer
-                  </Link>
-                </li>
-              </ul>
+              <>
+                <button
+                  onClick={() => {
+                    ctx.dataState.setRole("Merchant");
+                    console.log("running");
+                  }}
+                  className=" btn btn-outline"
+                >
+                  Become Merchant
+                </button>
+
+                <button
+                  onClick={() => {
+                    console.log("running");
+                    ctx.dataState.setRole("Buyer");
+                  }}
+                  className=" btn btn-outline"
+                >
+                  Become Buyer
+                </button>
+              </>
             )}
-            {ctx.dataState.role == "Merchant" && (
-              <ul className="p-2 bg-base-100">
+            {accountAddress !== null && ctx.dataState.role == "Merchant" && (
+              <>
                 <li>
                   <Link
                     style={{ marginRight: "20px" }}
@@ -98,7 +76,14 @@ function Navbar() {
                     Rent/Buy
                   </Link>
                 </li>
-
+                <Link
+                  style={{ marginRight: "20px" }}
+                  exact
+                  className="nav-link btn-ghost"
+                  to="/upload"
+                >
+                  Upload Products
+                </Link>
                 <li>
                   <Link
                     style={{ marginRight: "20px" }}
@@ -119,20 +104,10 @@ function Navbar() {
                     Reward
                   </Link>
                 </li>
-                <li tabIndex={0}>
-                  <Link
-                    style={{ marginRight: "20px" }}
-                    exact
-                    className="nav-link btn-ghost"
-                    to="/upload"
-                  >
-                    Upload Products
-                  </Link>
-                </li>
-              </ul>
+              </>
             )}
             {ctx.dataState.role == "Buyer" && (
-              <ul className="p-2 bg-base-100">
+              <>
                 <li>
                   <Link
                     style={{ marginRight: "20px" }}
@@ -153,8 +128,23 @@ function Navbar() {
                     History
                   </Link>
                 </li>
-              </ul>
+              </>
             )}
+            <a>
+              <button
+                onClick={connectFormHandler}
+                style={{ marginRight: "20px", marginLeft: "20px" }}
+                exact
+                className=" btn btn-outline"
+              >
+                {accountAddress
+                  ? `${accountAddress.substr(0, 5)}...${accountAddress.substr(
+                      37,
+                      42
+                    )}`
+                  : "connect"}
+              </button>
+            </a>
           </li>
         </ul>
       </div>
