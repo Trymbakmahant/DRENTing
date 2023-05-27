@@ -10,14 +10,9 @@ router.route("/").post(async (req, res) => {
       image,
       catogory,
       rental,
-      buying,
-      owner,
-      index,
-      ads,
-    } = req.body;
 
-    let imageId = image.split("/")[5];
-    let imageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
+      owner,
+    } = req.body;
 
     const product = new Products({
       name,
@@ -25,10 +20,8 @@ router.route("/").post(async (req, res) => {
       imageUrl,
       catogory,
       rental,
-      buying,
+
       owner,
-      index,
-      ads,
     });
 
     await product.save();
