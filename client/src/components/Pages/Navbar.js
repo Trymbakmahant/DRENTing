@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { useState, useContext, useEffect } from "react";
 import { accContext } from "../context/accountContext";
 import { axios } from "axios";
-import logo from "./logo.png";
+import logo from "../image/logo.png";
 import { Link } from "react-router-dom";
 function Navbar() {
   const ctx = useContext(accContext);
