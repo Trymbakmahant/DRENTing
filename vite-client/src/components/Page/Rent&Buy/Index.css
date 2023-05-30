@@ -1,0 +1,26 @@
+.cardimage {
+  justify-content: center;
+  height: 100%;
+  margin: 10px;
+  width: 45%;
+  display: flex;
+}
+.cardfullbody {
+  width: 80%px;
+  height: 300px;
+}
+.cardofby {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  width: 70%;
+}

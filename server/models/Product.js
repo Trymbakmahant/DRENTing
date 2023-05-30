@@ -8,7 +8,7 @@ const Product = new mongoose.Schema({
   rental: { type: String, required: true },
   buying: { type: String, required: true },
   owner: { type: String, required: true },
-  index: { type: String, required: true },
+  index: { type: String, required: false },
   ads: { type: Boolean, required: true },
 });
 

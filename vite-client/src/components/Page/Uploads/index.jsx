@@ -1,7 +1,7 @@
-import { useState, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { accContext } from "../context/accountContext";
+import { accContext } from "../../context/AccountContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,7 +10,7 @@ function Upload() {
   const navigate = useNavigate();
   const name = useRef();
   const description = useRef();
-  const [image, setImage] = useState();
+  const image = useRef();
   const catogory = useRef();
   const rental = useRef();
   const buying = useRef();
@@ -20,27 +20,16 @@ function Upload() {
   console.log(ads);
   const submitter = async () => {
     try {
-      const imageis = new FormData();
-      imageis.append("file", image);
-      imageis.append("upload_preset", "ml_default");
-      const ImageResponse = await fetch(
-        "https://api.cloudinary.com/v1_1/dxfejxnvp/image/upload",
-        {
-          method: "POST",
-          body: imageis,
-        }
-      );
-      const imagedata = await ImageResponse.json();
-      console.log(imagedata.secure_url);
-
+      const index = await ctx.dataState.createIndex();
       const datais = {
         name: name.current.value,
         description: description.current.value,
-        image: imagedata.secure_url,
+        image: image.current.value,
         catogory: catogory.current.value,
         rental: rental.current.value,
         buying: buying.current.value,
-        owner: owner,
+        owner,
+        index,
         ads,
       };
       const data = await axios.post(
@@ -62,7 +51,7 @@ function Upload() {
       <div className="grid justify-items-center    border-4 pt-20 ">
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">product's name</span>
+            <span className="label-text">products name</span>
           </label>
           <input
             type="text"
@@ -73,7 +62,7 @@ function Upload() {
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">prduct's description</span>
+            <span className="label-text">prducts description</span>
           </label>
           <input
             type="text"
@@ -84,23 +73,18 @@ function Upload() {
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">product's image link </span>
+            <span className="label-text">products image link </span>
           </label>
           <input
-            style={{
-              padding: "8px",
-            }}
-            type="file"
+            type="text"
+            ref={image}
             placeholder="Type here"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
             className="input input-bordered  w-full ring  ring-current max-w-xs"
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">product's catogory</span>
+            <span className="label-text">products catogory</span>
           </label>
           <input
             type="text"

@@ -14,6 +14,7 @@ const Buyrentcard = () => {
       const { data } = await axios.post(
         `http://localhost:8081/api/productData/all`
       );
+      console.log(data);
       setPost(data);
       ctx.dataState.setPost(data);
     } catch (err) {

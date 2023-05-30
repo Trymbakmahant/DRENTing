@@ -16,13 +16,10 @@ router.route("/").post(async (req, res) => {
       ads,
     } = req.body;
 
-    let imageId = image.split("/")[5];
-    let imageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
-
     const product = new Products({
       name,
       description,
-      imageUrl,
+      imageUrl: image,
       catogory,
       rental,
       buying,

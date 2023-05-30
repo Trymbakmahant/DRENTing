@@ -6,7 +6,7 @@ import axios from "axios";
 import { Provider } from "@ethersproject/abstract-provider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { createNewFlow } from "./Paymentsuperfluid";
 const Buy = () => {
   const [post, setPost] = useState([]);
   const [owner, setOwner] = useState("");
@@ -48,13 +48,13 @@ const Buy = () => {
 
   async function payment() {
     console.log(index);
-    await ctx.dataState.updateSubscription(
-      index,
-      ctx.dataState.acclogin.accountAddress,
-      1
-    );
+    // await ctx.dataState.updateSubscription(
+    //   index,
+    //   ctx.dataState.acclogin.accountAddress,
+    //   1
+    // );
     setLoading(true);
-    await ctx.dataState.createNewFlow(owner, flowrate);
+    await createNewFlow(owner, flowrate);
     const dataofhistory = {
       flowrate,
       user,
@@ -130,7 +130,9 @@ const Buy = () => {
           <div className="card card-side h-8/12	w-8/12 shadow-xl  ring ring-offset-4 glass">
             <figure>
               <img
-                className="	 w-[1000px] h-[700px] scale-75	 "
+                style={{
+                  height: "400px",
+                }}
                 src={post[0].imageUrl}
               />
             </figure>
